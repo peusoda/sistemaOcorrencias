@@ -23,11 +23,11 @@
     <!-- Custom fonts for this template-->
     <link href="{{ asset('css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+   
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
-
+    @stack('style')
 </head>
 <body id="page-top">
 
@@ -119,7 +119,7 @@
 <div id="content">
 
   <!-- Topbar -->
-  <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+  <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
 
     <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -127,6 +127,7 @@
     </button>
 
     <!-- Topbar Search -->
+    <!--
     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
       <div class="input-group">
         <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -137,6 +138,7 @@
         </div>
       </div>
     </form>
+-->
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
@@ -302,31 +304,12 @@
   <!-- End of Topbar -->
 
   <!-- Begin Page Content -->
-  <div class="container-fluid">
+  
 
-    <!-- Page Heading -->
-    <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-    
-  </div>
-
-  </div>
+    <main class="py-4">
+      @yield('content')
+    </main>
+ 
   <!-- /.container-fluid -->
 
 </div>
@@ -370,15 +353,14 @@
   </div>
 </div>
 </div>
-        <main class="py-4">
-            @yield('content')
-        </main>
+        
 
     </div>
 </body>
     @stack('js')
         <!-- Bootstrap core JavaScript-->
-        <script src="{{ asset('/js/jquery.min.js') }}"></script>
+        
+        
         <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
 
         <!-- Core plugin JavaScript-->
@@ -393,4 +375,8 @@
         <!-- Page level custom scripts -->
         <script src="{{ asset('/js/chart-area-demo.js') }}"></script>
         <script src="{{ asset('/js/chart-pie-demo.js') }}"></script>
+
+        
+
+        
 </html>    
