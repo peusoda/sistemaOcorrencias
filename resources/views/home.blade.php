@@ -55,9 +55,8 @@
 @endsection
 
 @push('js')
-<script src="{{ asset('/js/jquery.min.js') }}"></script>
+<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
     $(document).ready( function () {
         $('#table').DataTable({
@@ -79,6 +78,7 @@
         });
     } );
 </script>
+@endpush
 @endpush
 
 
