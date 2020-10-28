@@ -27,7 +27,9 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
+    
     @stack('style')
+    <link rel="stylesheet" href="{{ asset('https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css') }}" crossorigin="anonymous" />
 </head>
 <body id="page-top">
 
@@ -356,15 +358,18 @@
         
 
     </div>
-</body>
-    @stack('js')
+
+      
+      @stack('js')
         <!-- Bootstrap core JavaScript-->
         
+        <script src="{{ asset('/js/jquery.min.js')  }}"></script>
+        <script src="{{ asset('https://code.jquery.com/jquery-3.4.1.min.js') }}"></script>
         
         <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
 
         <!-- Core plugin JavaScript-->
-        <script src="{{ asset('/js/jquery.easing.min.js') }}"></script>
+        <!--<script src="{{ asset('/js/jquery.easing.min.js') }}"></script>-->
 
         <!-- Custom scripts for all pages-->
         <script src="{{ asset('/js/sb-admin-2.min.js') }}"></script>
@@ -376,6 +381,7 @@
         <script src="{{ asset('/js/chart-area-demo.js') }}"></script>
         <script src="{{ asset('/js/chart-pie-demo.js') }}"></script>
 
+</body>
         
 
         
