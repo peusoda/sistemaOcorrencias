@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @push('style')
+<<<<<<< HEAD
     
+=======
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" crossorigin="anonymous" />
+>>>>>>> b4dc87e4591a1a7bef2c5c093e5deae6b85312d6
 @endpush
 @section('content')
 <div class="container">
@@ -55,9 +59,8 @@
 @endsection
 
 @push('js')
-<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
-
-<script src="{{ asset('https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('/js/jquery.min.js')  }}"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
     $(document).ready( function () {
         $('#table').DataTable({
