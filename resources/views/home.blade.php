@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('style')
-    <link rel="stylesheet" href="{{ asset('https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css') }}" crossorigin="anonymous" />
+    
 @endpush
 @section('content')
 <div class="container">
@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header">Listagem de todos os usuários cadastrados no sistema
                     <button type="submit" class="btn btn-primary btnp">
-                        <a href="#" id="btn">Cadastrar </a>
+                        <div class="btn"> <a href="#" id="btn">Cadastrar </a></div>
                     </button>
                 </div>
                 <div class="card-body">
