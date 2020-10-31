@@ -10,9 +10,9 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Listagem de todos os usuários cadastrados no sistema
+                <div class="card-header">Listagem de tod
                     <button type="submit" class="btn btn-primary btnp">
-                        <div class="btn"> <a href="{{ asset('telacad.blade.php') }}" id="btn">Cadastrar </a></div>
+                        <div class="btn"> <a href="#" id="btn">Cadastrar </a></div>
                     </button>
                 </div>
                 <div class="card-body">

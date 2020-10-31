@@ -7,14 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<<<<<<< HEAD
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <title>Sistema de Ocorrências</title>
-=======
     <title>{{ config('S-GO', 'Laravel') }}</title>
->>>>>>> b4dc87e4591a1a7bef2c5c093e5deae6b85312d6
+
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
