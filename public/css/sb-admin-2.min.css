@@ -638,6 +638,7 @@
     padding-right: 0.75rem;
     padding-left: 0.75rem;
   }
+
   
   .col {
     flex-basis: 0;
@@ -2481,8 +2482,10 @@
   
   .btn-success {
     color: #fff;
-    background-color: #1cc88a;
-    border-color: #1cc88a;
+    font-size: 1rem;
+    line-height: 1;
+    background-color: #22be56;
+    border-color: #22be56;
   }
   
   .btn-success:hover {
@@ -2592,6 +2595,8 @@
   
   .btn-danger {
     color: #fff;
+    font-size: 1rem;
+    line-height: 1;
     background-color: #e74a3b;
     border-color: #e74a3b;
   }
