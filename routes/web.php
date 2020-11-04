@@ -23,3 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/telacad', function () {
     return view('telaCad');
 });
+
+//Grupo de rotas de acesso para o CRUD SERVIDOR
+Route::group(['prefix' => 'servidor'], function(){
+
+});
