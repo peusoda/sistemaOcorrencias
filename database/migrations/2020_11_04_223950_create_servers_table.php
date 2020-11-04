@@ -16,7 +16,7 @@ class CreateServersTable extends Migration
         Schema::create('servers', function (Blueprint $table) {
             $table->id();
             $table->string('nome', 100);
-            $table->string('sipe', 8);
+            $table->string('siape', 8);
             $table->string('email', 45);
             $table->string('contato', 13);
             $table->enum('funcao', ['p', 't']);
