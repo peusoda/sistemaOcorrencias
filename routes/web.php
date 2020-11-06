@@ -28,3 +28,6 @@ Route::get('/telacad', function () {
 Route::group(['prefix' => 'servidor'], function(){
 
 });
+
+//Grupo de Rotas do crud Turma
+Route::resource('turma', 'TurmaController');
