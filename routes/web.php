@@ -26,5 +26,21 @@ Route::get('/telacad', function () {
 
 //Grupo de rotas de acesso para o CRUD SERVIDOR
 Route::group(['prefix' => 'servidor'], function(){
+    //Rota para abrir a dataTables com informações dos servidores
+    Route::get('/show', [
+        'as' => 'servidor.show',
+        'uses' => 'ServersController@show'
+    ]);
+    //Rota para cadastro de Servidor.
+    Route::get('/create', [
+        'as' => 'servidor.create',
+        'uses' => 'ServersController@create'
+    ]);
+    //Rota para persistência dos dados vindo do Form.
+    Route::post('/create/new', [
+        'as' => 'servidor.new',
+        'uses' => 'ServersController@store'
+    ]);
+    
 
 });
