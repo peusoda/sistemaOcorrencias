@@ -67,7 +67,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ asset('turmas/') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Turmas</span></a>
         </li>
