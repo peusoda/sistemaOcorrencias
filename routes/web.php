@@ -46,6 +46,15 @@ Route::group(['prefix' => 'servidor'], function(){
         'as' => 'servidor.update',
         'uses' => 'ServersController@update'
     ]);
+    Route::put('/update/updateConf', [
+        'as' => 'servidor.updateConf',
+        'uses' => 'ServersController@updateConf'
+    ]);
+    //Rota para deletar Servidor
+    Route::get('/delete/{id}', [
+        'as' => 'servidor.delete',
+        'uses' => 'ServersController@delete'
+    ]);
 
 });
 
