@@ -41,7 +41,11 @@ Route::group(['prefix' => 'servidor'], function(){
         'as' => 'servidor.new',
         'uses' => 'ServersController@store'
     ]);
-    
+    //Rotas para atualizar dados servidor
+    Route::get('/update/{id}', [
+        'as' => 'servidor.update',
+        'uses' => 'ServersController@update'
+    ]);
 
 });
 

@@ -18,7 +18,11 @@ class ServersController extends Controller
         Função que irá retorna os dados dos servidores cadastrados.
     */
     protected function show() {
-        return view('dashboard.servidor.show');
+        $serv = new Server();
+        $result = $serv->all();
+
+        return view('dashboard.servidor.show')
+            ->with('serv', $result);
     }
     /*
         Função de recebimento dos dados do formulário (Request $request), e persistência desses dados na tabela Servidor.
@@ -43,8 +47,13 @@ class ServersController extends Controller
              */
             flash('Servidor cadastrado com sucesso!')->success();
             return redirect(route('servidor.show'));
-        }
-            
+        }            
+    }
 
+    protected function update(Request $request, $id) {
+        $result = Server::find($id);
+        
+        return view('dashboard.servidor.update')
+            ->with('server', $result);
     }
 }

@@ -24,7 +24,7 @@
                         <thead>
                             <tr>
                                 <th>Nome do Servidor</th>
-                                <th>Email</th>
+                                <th>E-mail</th>
                                 <th>Siape</th>
                                 <th>Contato</th>
                                 <th>Função</th>
@@ -33,20 +33,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                        @foreach($serv as $servidor)
                             <tr class="active">
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td><a href="#" class="btn btn-info btn-sm"> Atualizar
+                                
+                                <td>{{ $servidor->nome }}</td>
+                                <td>{{ $servidor->email }}</td>
+                                <td>{{ $servidor->siape }}</td>
+                                <td>{{ $servidor->contato }}</td>
+                                @if($servidor->funcao == 'p')
+                                    <td>Professor</td>
+                                @else
+                                    <td>Servidor</td>
+                                @endif
+                                <td><a href="{{ route('servidor.update', $servidor->id) }}" class="btn btn-info btn-sm"> Atualizar
                                     </a>&ensp;</td>
                                     <td><a class="btn btn-danger btn-sm delete-confirm"
                                         href="#">
                                         Excluir </a></td>
+                                
                             </tr>
-                            
+                            @endforeach
 
                         </tbody>
                     </table>
