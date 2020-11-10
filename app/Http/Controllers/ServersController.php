@@ -50,7 +50,7 @@ class ServersController extends Controller
         }            
     }
 
-    protected function update(Request $request, $id) {
+    protected function update($id) {
         $result = Server::find($id);
         
         return view('dashboard.servidor.update')
