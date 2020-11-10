@@ -18,7 +18,7 @@ class TurmaController extends Controller
     public function index()
     {
         $turmas = Turma::all();
-        return view('turma/index')->with('turmas', $turmas);
+        return view('dashboard/turma/index')->with('turmas', $turmas);
     }
 
     /**
