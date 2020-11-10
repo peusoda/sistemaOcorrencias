@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateTurmaRequest;
 use App\Turma;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class TurmaController extends Controller
 {
@@ -15,7 +17,8 @@ class TurmaController extends Controller
      */
     public function index()
     {
-        return view('turma/index');
+        $turmas = Turma::all();
+        return view('turma/index')->with('turmas', $turmas);
     }
 
     /**
@@ -25,7 +28,7 @@ class TurmaController extends Controller
      */
     public function create()
     {
-        return view('turma/create');
+        return view('dashboard/turma/create');
     }
 
     /**
@@ -34,13 +37,16 @@ class TurmaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdateTurmaRequest $request)
     {
-        $data = $request->all();
+        $turma = new Turma();
 
-        Turma::create($data);
+        $turma->codigo = $request->input('codigo');
+        $turma->curso = $request->input('curso');
+        
+        $turma->save();
 
-        redirect(route('turmas.index'));
+        return redirect()->route('turmas.index');
     }
 
     /**
@@ -62,7 +68,8 @@ class TurmaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $turma = Turma::find($id);
+        return view('dashboard/turma/edit')->with('turma', $turma);
     }
 
     /**
@@ -72,9 +79,24 @@ class TurmaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreUpdateTurmaRequest $request, $id)
     {
-        //
+        $turma = Turma::find($request->input('id'));
+        
+        $turma->codigo = $request->input('codigo');
+        $turma->curso = $request->select('curso');
+
+        try {
+            if($turma->save()) {
+                return redirect()->route('turmas.index');
+            }
+        } catch(QueryException $ex) {
+
+            return redirect()->route('turmas.index');
+
+        }
+
+        
     }
 
     /**
@@ -85,6 +107,16 @@ class TurmaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $turma = Turma::find($id);
+
+        try {
+            if($turma->delete()) {
+                return redirect()->route('turmas.index');
+            }
+        } catch(QueryException $ex) {
+
+            return redirect()->route('turmas.index');
+
+        }
     }
 }
