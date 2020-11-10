@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @push('style')
     <style>
     h11 {
@@ -24,18 +23,18 @@
                 <div class="card-header">Cadastro de Servidor</div>
                 <div class="card-body">
                   <div class="portlet-body table-responsive">
-                  {{ Form::open(['route' => 'servidor.new', 'method' => 'POST', 'files' => true, 'enctype' => 'multipart/form-data']) }}  
+                  {{ Form::model($server, ['route' => 'servidor.updateConf', 'method' => 'PUT', 'files' => true, 'enctype' => 'multipart/form-data']) }}  
                   <table class="table" id="table">
                     
                         <fieldset>
-
+                            <input type="hidden" value="{{ $server->id }}" name="id">
                             <!-- Text input-->
                             {{-- Nome do Servidor --}}
                             <div class="form-group">
                             {{ Form::label('nome', 'Nome *', array('class' => 'col-md-2 control-label')) }}
                               <!--<label class="col-md-2 control-label" for="Nome">Nome<h11>*</h11></label>  -->
                               <div class="col-md-8 ">
-                              <input id="nome" name="nome" placeholder="Nome" class="form-control input-md" required="true" type="text">
+                                {{ Form::text('nome', 'old'('nome'), ['class' => 'form-control input-md', 'required']) }}
                               </div>
                             </div>
 
@@ -44,7 +43,7 @@
                             {{ Form::label('siape', 'Siape *', array('class' => 'col-md-5 control-label'))}}
                               <!--<label class="col-md-5 control-label" >Siape<h11>*</h11></label>  -->
                               <div class="col-md-2">
-                              <input id="siape" name="siape" placeholder="Siape" class="form-control input-md" required="true" type="text">
+                                  {{ Form::text('siape', 'old'('siape'), ['class' => 'form-control input-md', 'required']) }}
                             </div>
                         </div>
                             <div class="form-group">
@@ -63,7 +62,7 @@
                             {{ Form::label('email', 'E-mail *', array('class' => 'col-md-5 control-label') )}}
                             <!--<label class="col-md-5 control-label" for="profissao">Naturalidade<h11>*</h11></label>  -->
                               <div class="col-md-4">
-                              <input id="email" name="email" type="email" placeholder="e-mail" class="form-control input-md" required="true">
+                                {{ Form::email('email', 'old'('email'), ['class' => 'form-control input-md', 'required']) }}
                               </div>
                               </div>
 
@@ -71,7 +70,7 @@
                               {{ Form::label('contato', 'Contato *', array('class' => 'col-md-5 control-label')) }}
                             <!--<label class="col-md-5 control-label" for="#">Município<h11>*</h11></label>  -->
                               <div class="col-md-4">
-                              <input id="contato" name="contato" type="text" placeholder="contato" class="form-control input-md" required="">
+                                {{ Form::text('contato', 'old'('contato'), ['class' => 'form-control input-md', 'required']) }}
                               </div>
                               </div>
                             </div>

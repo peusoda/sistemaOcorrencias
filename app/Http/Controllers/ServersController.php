@@ -56,4 +56,29 @@ class ServersController extends Controller
         return view('dashboard.servidor.update')
             ->with('server', $result);
     }
+
+    protected function updateConf(Request $request, Server $serv) {
+        $serv = new Server();
+        $id = $request->input('id');
+        $serv = Server::find($id);
+        $serv->nome = $request->input('nome');
+        $serv->siape = $request->input('siape');
+        $serv->funcao = $request->input('funcao');
+        $serv->email = $request->input('email');
+        $serv->contato = $request->input('contato');
+
+        if($serv->save()) {
+            flash('Servidor atualizado com sucesso!')->success();
+            return redirect(route('servidor.show'));
+        }
+    }
+
+    protected function delete($id, Server $serv) {
+        $serv = new Server();
+        $serv = Server::find($id);
+
+        if($serv->delete()) {
+            echo "sucess";
+        }
+    }
 }

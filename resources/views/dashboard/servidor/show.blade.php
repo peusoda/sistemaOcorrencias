@@ -48,7 +48,7 @@
                                 <td><a href="{{ route('servidor.update', $servidor->id) }}" class="btn btn-info btn-sm"> Atualizar
                                     </a>&ensp;</td>
                                     <td><a class="btn btn-danger btn-sm delete-confirm"
-                                        href="#">
+                                        href="{{ route('servidor.delete', $servidor->id) }}">
                                         Excluir </a></td>
                                 
                             </tr>
