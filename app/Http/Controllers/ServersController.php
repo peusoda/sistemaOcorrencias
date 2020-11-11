@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use App\Server;
+use PhpParser\Node\Stmt\TryCatch;
 
 class ServersController extends Controller
 {
@@ -40,23 +41,35 @@ class ServersController extends Controller
         /*
             Persistência de dados
         */
-        if($serv->save()) {
-            /**
-             * O Método FLASH retorna junto com a rota servidor.show Uma mensagem ao realizar persistência. Na view (dashboard.servidor.show)
-             * possuí a inclusão da classe Flase 
-             */
-            flash('Servidor cadastrado com sucesso!')->success();
+        Try {
+            if($serv->save()) {
+                /**
+                 * O Método FLASH retorna junto com a rota servidor.show Uma mensagem ao realizar persistência. Na view (dashboard.servidor.show)
+                 * possuí a inclusão da classe Flase 
+                 */
+                flash('Servidor cadastrado com sucesso!')->success();
+                return redirect(route('servidor.show'));
+            }
+        } catch(QueryException $ex) {
+            flash('Não foi possível cadastrar Servidor, tente novamente!')->error();
             return redirect(route('servidor.show'));
         }            
     }
-
+    /**
+     * Método para buscar o Servidor que deseja atualizar
+     */
     protected function update($id) {
+        /**
+         * Consulta servidor pelo ID
+         */
         $result = Server::find($id);
         
         return view('dashboard.servidor.update')
             ->with('server', $result);
     }
-
+    /**
+     * Método para atualizar Servidor
+     */
     protected function updateConf(Request $request, Server $serv) {
         $serv = new Server();
         $id = $request->input('id');
@@ -67,18 +80,31 @@ class ServersController extends Controller
         $serv->email = $request->input('email');
         $serv->contato = $request->input('contato');
 
-        if($serv->save()) {
-            flash('Servidor atualizado com sucesso!')->success();
+        try {
+            if($serv->save()) {
+                flash('Servidor atualizado com sucesso!')->success();
+                return redirect(route('servidor.show'));
+            }
+        } catch(QueryException $ex) {
+            flash('Não foi possível atualizar Servidor, tente novamente!')->error();
             return redirect(route('servidor.show'));
         }
     }
-
+    /**
+     * Método para deletar Servidor
+     */
     protected function delete($id, Server $serv) {
         $serv = new Server();
         $serv = Server::find($id);
 
-        if($serv->delete()) {
-            echo "sucess";
+        try {
+            if($serv->delete()) {
+                flash('Servidor excluido com sucesso!')->success();
+                return redirect(route('servidor.show'));
+            }
+        } catch(QueryException $ex) {
+            flash('Não foi possível excluir Servidor, tente novamente!')->error();
+            return redirect(route('servidor.show'));
         }
     }
 }
