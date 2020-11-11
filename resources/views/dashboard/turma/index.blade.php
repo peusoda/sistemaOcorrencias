@@ -15,6 +15,7 @@
                         <div class="btn"> <a href="{{ Route('turmas.create') }}" id="btn">Cadastrar </a></div>
                     </button>
                 </div>
+                @include('flash::message')
                 <div class="card-body">
                    <div class="portlet-body table-responsive">
                    

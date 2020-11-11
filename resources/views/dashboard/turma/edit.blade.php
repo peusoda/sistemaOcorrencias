@@ -30,8 +30,9 @@ color:red;
                 <div class="card-body">
                   <div class="portlet-body table-responsive">
                     <table class="table" id="table">
-                      <form action="{{ Route('turmas.update', $turma) }}" method="put" class="form-horizontal">
+                      <form action="{{ Route('turmas.update', $turma->id) }}" method="post" class="form-horizontal">
                         @csrf
+                        @method('put')
                         <!-- Text input-->
                         <div class="form-group">
                           <label class="col-md-2 control-label" for="codigo">Código<h11>*</h11></label>  

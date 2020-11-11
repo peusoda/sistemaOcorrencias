@@ -15,6 +15,7 @@ class TurmaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Método para direcionar a pagina para a tela de apresentação de turmas.
     public function index()
     {
         $turmas = Turma::all();
@@ -26,6 +27,7 @@ class TurmaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Método para direcionar a pagina para a tela de criação de turma.
     public function create()
     {
         return view('dashboard/turma/create');
@@ -37,6 +39,7 @@ class TurmaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Método para cadastrar uma turma.
     public function store(StoreUpdateTurmaRequest $request)
     {
         $turma = new Turma();
@@ -44,9 +47,16 @@ class TurmaController extends Controller
         $turma->codigo = $request->input('codigo');
         $turma->curso = $request->input('curso');
         
-        $turma->save();
+        try {
+            if($turma->save()) {
+                flash('Turma criada com sucesso!')->success();
+                return redirect()->route('turmas.index');
+            }
+        } catch(QueryException $ex) {
+            flash('Não foi possível criar a turma, tente novamente!')->error();
+            return redirect()->route('turmas.index');
 
-        return redirect()->route('turmas.index');
+        }
     }
 
     /**
@@ -66,6 +76,7 @@ class TurmaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Método para direcionar a pagina para a tela de atualização de turma.
     public function edit($id)
     {
         $turma = Turma::find($id);
@@ -79,24 +90,24 @@ class TurmaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Método para atualizar uma turma.
     public function update(StoreUpdateTurmaRequest $request, $id)
     {
-        $turma = Turma::find($request->input('id'));
-        
+        $turma = new Turma;
+        $turma = Turma::find($id);
+       
         $turma->codigo = $request->input('codigo');
-        $turma->curso = $request->select('curso');
-
+        $turma->curso = $request->input('curso');
         try {
             if($turma->save()) {
+                flash('Turma atualizada com sucesso!')->success();
                 return redirect()->route('turmas.index');
             }
         } catch(QueryException $ex) {
-
+            flash('Não foi possível atualizar a turma, tente novamente!')->error();
             return redirect()->route('turmas.index');
 
         }
-
-        
     }
 
     /**
@@ -105,16 +116,18 @@ class TurmaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Metodo para apagar uma turma.
     public function destroy($id)
     {
         $turma = Turma::find($id);
 
         try {
             if($turma->delete()) {
+                flash('Turma apagada com sucesso!')->success();
                 return redirect()->route('turmas.index');
             }
         } catch(QueryException $ex) {
-
+            flash('Não foi possível apagar a turma, tente novamente!')->error();
             return redirect()->route('turmas.index');
 
         }

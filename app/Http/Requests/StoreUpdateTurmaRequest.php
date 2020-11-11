@@ -24,7 +24,8 @@ class StoreUpdateTurmaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'codigo' => 'required',
+            'curso' => 'required'
         ];
     }
 }
