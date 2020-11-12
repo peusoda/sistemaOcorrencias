@@ -47,7 +47,7 @@ color:red;
                         <div class="form-group">
                           <label class="col-md-2 control-label" for="curso">Curso<h11>*</h11></label>
                           <div class="col-md-2">
-                            <select required id="curso" name="curso" class="form-control @error('curso') is-invalid @enderror" onload="">
+                            <select required id="curso" name="curso" class="form-control @error('curso') is-invalid @enderror" aria-selected="">
                               <option value=""></option>
                               <option value="ti">TI</option>
                               <option value="agro">AGRO</option>
@@ -77,7 +77,13 @@ color:red;
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script>
-        
+      var c = "<?php print $turma->curso; ?>";
+        if(c === "ti")
+          curso.selectedIndex = 1;
+        else if(c === "agro")
+          curso.selectedIndex = 2;
+        else
+          curso.selectedIndex = 3;
     </script>
 @endpush    
 
