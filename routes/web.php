@@ -61,3 +61,38 @@ Route::group(['prefix' => 'servidor'], function(){
 //Grupo de Rotas do crud Turma
 Route::resource('turmas', 'TurmaController');
 Route::get('turmas/{id}/delete', 'TurmaController@destroy')->name('turmas.delete');
+
+
+//Grupo de rotas de acesso para o CRUD Responsavels
+Route::group(['prefix' => 'responsavel'], function(){
+    //Rota para abrir a dataTables com informações dos responsaveles
+    Route::get('/show', [
+        'as' => 'responsavel.show',
+        'uses' => 'ResponsavelsController@show'
+    ]);
+    //Rota para cadastro de responsavel.
+    Route::get('/create', [
+        'as' => 'responsavel.create',
+        'uses' => 'ResponsavelsController@create'
+    ]);
+    //Rota para persistência dos dados vindo do Form.
+    Route::post('/create/new', [
+        'as' => 'responsavel.new',
+        'uses' => 'ResponsavelsController@store'
+    ]);
+    //Rotas para atualizar dados responsavel
+    Route::get('/update/{id}', [
+        'as' => 'responsavel.update',
+        'uses' => 'ResponsavelsController@update'
+    ]);
+    Route::put('/update/updateConf', [
+        'as' => 'responsavel.updateConf',
+        'uses' => 'ResponsavelsController@updateConf'
+    ]);
+    //Rota para deletar responsavel
+    Route::get('/delete/{id}', [
+        'as' => 'responsavel.delete',
+        'uses' => 'ResponsavelsController@delete'
+    ]);
+
+});
