@@ -77,7 +77,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('responsavel.show') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Responsáveis</span></a>
         </li>
