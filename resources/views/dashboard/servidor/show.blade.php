@@ -65,6 +65,8 @@
 @endsection
 
 @push('js')
+<!--script do alert ao deletar-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="{{ asset('/js/jquery.min.js')  }}"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
@@ -87,6 +89,21 @@
 
         });
     } );
+    //Função para mostrar alert ao clickar no botão deletar.
+    $('.delete-confirm').on('click', function (event) {
+            event.preventDefault();
+            const url = $(this).attr('href');
+            swal({
+                title: 'Quer mesmo excluir esse servidor?',
+                text: 'O servidor será excluído permanentemente.',
+                icon: 'warning',
+                buttons: ["Não", "Sim"],
+            }).then(function (value) {
+                if (value) {
+                    window.location.href = url;
+                }
+            });
+        });
 </script>
 
 @endpush
