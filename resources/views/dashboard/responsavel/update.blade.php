@@ -38,9 +38,9 @@
                 </div>
 
                 <div class="form-group">
-                  {{ Form::label('cpf', 'E-mail *', array('class' => 'col-md-5 control-label') )}}
+                  {{ Form::label('cpf', 'Cpf *', array('class' => 'col-md-5 control-label') )}}
                   <div class="col-md-4">
-                    {{ Form::cpf('cpf', 'old'('cpf'), ['class' => 'form-control input-md', 'required']) }}
+                    {{ Form::text('cpf', 'old'('cpf'), ['class' => 'form-control input-md', 'required']) }}
                   </div>
                 </div>
 
