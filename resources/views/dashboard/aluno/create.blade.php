@@ -101,57 +101,55 @@
                               <div class="form-group">
                               {{ Form::label('apelido', 'Apelido', array('class' => 'col-md-5 control-label'))}}
                               <div class="col-md-4">
-                              <input id="#" name="#" type="text" placeholder="" class="form-control input-md" required="">
+                              <input id="#" name="#" type="text" placeholder="insira o apelido" class="form-control input-md" required="">
                               </div>
                               </div>
 
                               <div class="form-group">
-                              {{ Form::label('observacao', 'Observações', array('class' => 'col-md-5 control-label'))}}
+                              {{ Form::label('observacao', 'Observações', array('class' => 'col-md-5 control-label')) }}
                               <div class="col-md-12">
-                              <input id="profissao" name="profissao" type="text" placeholder="" class="form-control input-md" required="">
+                              <input id="profissao" name="profissao" type="text" placeholder="insira observações" class="form-control input-md" required="">
                               </div>
                               </div>
 
                               <div class="form-group">
-                            <label class="col-md-5 control-label" for="profissao">Observações Médicas</label>  
+                              {{ Form::label('obsMedica', 'Observações Médicas', array('class' => 'col-md-5 control-label')) }}
                               <div class="col-md-12">
-                              <input id="profissao" name="profissao" type="text" placeholder="" class="form-control input-md" required="">
+                              <input id="profissao" name="profissao" type="text" placeholder="insira as observações médicas" class="form-control input-md" required="">
                               </div>
                               </div>
 
                               <div class="form-group">
-                            <label class="col-md-5 control-label" for="profissao">Observações Pedagógicas</label>  
+                              {{ Form::label('obsMedica', 'Observações Pedagógicas', array('class' => 'col-md-5 control-label')) }}
                               <div class="col-md-12">
-                              <input id="profissao" name="profissao" type="text" placeholder="" class="form-control input-md" required="">
+                              <input id="profissao" name="profissao" type="text" placeholder="insira as observações pedagógicas" class="form-control input-md" required="">
                               </div>
                               </div>
 
 
                             <!-- Select Basic -->
                             <div class="form-group">
-                              <label class="col-md-2 control-label" for="Estado Civil">Turma<h11>*</h11></label>
-                              <div class="col-md-2">
-                                <select required id="Estado Civil" name="Estado Civil" class="form-control">
-                                    <option value=""></option>
-                                  <option value="turma">TI 0118</option>
-                                  <option value="turma">TI 0119</option>
-                                  <option value="turma">TI 0120</option>
-                                  <option value="turma">AGRO 0118</option>
-                                  <option value="turma">AGRO 0119</option>
-                                  <option value="turma">AGRO 0120</option>
-                                  <option value="turma">ZOO 0118</option>
-                                  <option value="turma">ZOO 0119</option>
-                                  <option value="turma">ZOO 0120</option>
-                                </select>
-                              </div>
-                              </div>
+                                {{ Form::label('turma', 'Turma *', array('class' => 'col-md-4 control-label')) }}
+                                <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
+                                <div class="col-md-4"> 
+                                    <select value='' id="turma" name="turma" class="form-control chosen-select" required>
+                                        <option id="nada" name="nada" value="">Selecione uma turma</option>
+                                        @foreach($turmas as $turma)
+                                          <option id="nada" name="nada" value="">{{ $turma->codigo }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <!-- Prepended text-->
                             <div class="form-group">
-                                {{ Form::label('responsavel', 'Responsável *', array('class' => 'col-md-8 control-label'))}}
+                                {{ Form::label('responsavel', 'Responsável *', array('class' => 'col-md-8 control-label')) }}
                                 <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                                 <div class="col-md-8"> 
                                     <select value='' id="responsavel" name="responsavel" class="form-control chosen-select" required>
                                         <option id="nada" name="nada" value="">Selecione um responsável</option>
+                                        @foreach($responsaveis as $responsavel)
+                                          <option id="nada" name="nada" value="">{{ $responsavel->nome }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
