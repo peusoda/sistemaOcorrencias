@@ -96,3 +96,14 @@ Route::group(['prefix' => 'responsavel'], function(){
     ]);
 
 });
+
+Route::group(['prefix' => 'aluno'], function(){
+    Route::get('/show', [
+       'as' => 'aluno.show',
+       'uses' => 'AlunosController@show' 
+    ]);
+    Route::get('/create', [
+        'as' => 'aluno.create',
+        'uses' => 'AlunosController@create'
+    ]);
+});

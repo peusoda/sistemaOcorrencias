@@ -23,16 +23,15 @@
         <div class="card-header">Cadastro de Responsavel</div>
         <div class="card-body">
           <div class="portlet-body table-responsive">
-            {{ Form::model($server, ['route' => 'responsavel.updateConf', 'method' => 'PUT', 'files' => true, 'enctype' => 'multipart/form-data']) }}
+            {{ Form::model($responsavel, ['route' => 'responsavel.updateConf', 'method' => 'PUT', 'files' => true, 'enctype' => 'multipart/form-data']) }}
             <table class="table" id="table">
 
               <fieldset>
-                <input type="hidden" value="{{ $server->id }}" name="id">
+                <input type="hidden" value="{{ $responsavel->id }}" name="id">
                 <!-- Text input-->
                 {{-- Nome do Responsavel --}}
                 <div class="form-group">
                   {{ Form::label('nome', 'Nome *', array('class' => 'col-md-2 control-label')) }}
-                  <!--<label class="col-md-2 control-label" for="Nome">Nome<h11>*</h11></label>  -->
                   <div class="col-md-8 ">
                     {{ Form::text('nome', 'old'('nome'), ['class' => 'form-control input-md', 'required']) }}
                   </div>
@@ -40,7 +39,6 @@
 
                 <div class="form-group">
                   {{ Form::label('cpf', 'E-mail *', array('class' => 'col-md-5 control-label') )}}
-                  <!--<label class="col-md-5 control-label" for="profissao">Naturalidade<h11>*</h11></label>  -->
                   <div class="col-md-4">
                     {{ Form::cpf('cpf', 'old'('cpf'), ['class' => 'form-control input-md', 'required']) }}
                   </div>
@@ -48,7 +46,6 @@
 
                 <div class="form-group">
                   {{ Form::label('email', 'E-mail *', array('class' => 'col-md-5 control-label') )}}
-                  <!--<label class="col-md-5 control-label" for="profissao">Naturalidade<h11>*</h11></label>  -->
                   <div class="col-md-4">
                     {{ Form::email('email', 'old'('email'), ['class' => 'form-control input-md', 'required']) }}
                   </div>
@@ -56,7 +53,6 @@
 
                 <div class="form-group">
                   {{ Form::label('contato_1', 'Contato *', array('class' => 'col-md-5 control-label')) }}
-                  <!--<label class="col-md-5 control-label" for="#">Município<h11>*</h11></label>  -->
                   <div class="col-md-4">
                     {{ Form::text('contato_1', 'old'('contato_1'), ['class' => 'form-control input-md', 'required']) }}
                   </div>
@@ -64,7 +60,6 @@
 
                 <div class="form-group">
                   {{ Form::label('contato_2', 'Contato *', array('class' => 'col-md-5 control-label')) }}
-                  <!--<label class="col-md-5 control-label" for="#">Município<h11>*</h11></label>  -->
                   <div class="col-md-4">
                     {{ Form::text('contato_2', 'old'('contato_2'), ['class' => 'form-control input-md', 'required']) }}
                   </div>
