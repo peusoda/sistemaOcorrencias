@@ -34,7 +34,7 @@ class ResponsavelsController extends Controller
             Setando váriaveis
         */
         $respon->nome = $request->input('nome');
-        $respon->cpf = $request->input('cpf');
+        $respon->cpf = preg_replace('/[^0-9]/', '', $request->input('cpf'));
         $respon->email = $request->input('email');
         $respon->contato_1 = $request->input('contato_1');
         $respon->contato_2 = $request->input('contato_2');
@@ -73,7 +73,7 @@ class ResponsavelsController extends Controller
         $id = $request->input('id');
         $respon = Responsavel::find($id);
         $respon->nome = $request->input('nome');
-        $respon->cpf = $request->input('cpf');
+        $respon->cpf = preg_replace('/[^0-9]/', '', $request->input('cpf'));
         $respon->email = $request->input('email');
         $respon->contato_1 = $request->input('contato_1');
         $respon->contato_2 = $request->input('contato_2');
