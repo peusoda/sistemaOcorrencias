@@ -35,13 +35,13 @@
                         @foreach($alunos as $aluno)
                             <tr class="active">
                                 <td>{{ $aluno->nome }}</td>
-                                <td>{{ $aluno->turma_id }}</td>
+                                <td>{{ $aluno->turma->codigo }}</td>
                                 <td>{{ $aluno->municipio }}</td>
-                                <td>{{ $aluno->responsavel_id }}</td>
-                                <td><a href="{{ route('servidor.update', $servidor->id) }}" class="btn btn-info btn-sm"> Atualizar
+                                <td>{{ $aluno->responsavel->nome }}</td>
+                                <td><a href="{{ route('aluno.update', $aluno->id) }}" class="btn btn-info btn-sm"> Atualizar
                                     </a>&ensp;</td>
                                     <td><a class="btn btn-danger btn-sm delete-confirm"
-                                        href="{{ route('servidor.delete', $servidor->id) }}">
+                                        href="{{ route('aluno.delete', $aluno->id) }}">
                                         Excluir </a></td>
                                 
                             </tr>
@@ -87,8 +87,8 @@
             event.preventDefault();
             const url = $(this).attr('href');
             swal({
-                title: 'Quer mesmo excluir esse servidor?',
-                text: 'O servidor será excluído permanentemente.',
+                title: 'Quer mesmo excluir esse Aluno?',
+                text: 'O Aluno será excluído permanentemente.',
                 icon: 'warning',
                 buttons: ["Não", "Sim"],
             }).then(function (value) {

@@ -229,8 +229,15 @@
         <!-- Page level custom scripts -->
         <script src="{{ asset('/js/chart-area-demo.js') }}"></script>
         <script src="{{ asset('/js/chart-pie-demo.js') }}"></script>
-
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function ($) {
+                var $cpf = $(".cpf");
+                $cpf.mask('000.000.000-00', {
+                    reverse: true
+                });
+            });
+        </script>    
 
         
 </html>    

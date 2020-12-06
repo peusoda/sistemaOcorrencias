@@ -106,4 +106,20 @@ Route::group(['prefix' => 'aluno'], function(){
         'as' => 'aluno.create',
         'uses' => 'AlunosController@create'
     ]);
+    Route::post('/new', [
+        'as' => 'aluno.new',
+        'uses' => 'AlunosController@store'
+    ]);
+    Route::get('/update/{id}', [
+        'as' => 'aluno.update',
+        'uses' => 'AlunosController@update'
+    ]);
+    Route::put('/update/updateConf', [
+        'as' => 'aluno.updateConfirm',
+        'uses' => 'AlunosController@updateConf'
+    ]);
+    Route::get('/delete/{id}', [
+        'as' => 'aluno.delete',
+        'uses' => 'AlunosController@delete'
+    ]);
 });

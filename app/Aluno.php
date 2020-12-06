@@ -23,4 +23,13 @@ class Aluno extends Model
         'turma_id',
         'responsavel_id'
     ];
+
+    public function turma()
+    {
+        return $this->belongsTo(Turma::class, 'turma_id');
+    }
+    public function responsavel()
+    {
+        return $this->belongsTo(Responsavel::class, 'responsavel_id');
+    }
 }
