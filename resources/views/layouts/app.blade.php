@@ -48,7 +48,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('ocorrencia.show') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Minhas Ocorrências</span></a>
         </li>

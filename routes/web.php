@@ -123,3 +123,37 @@ Route::group(['prefix' => 'aluno'], function(){
         'uses' => 'AlunosController@delete'
     ]);
 });
+
+//Grupo de rotas de acesso para o CRUD Ocorrencias
+Route::group(['prefix' => 'ocorrencia'], function(){
+    //Rota para abrir a dataTables com informações dos ocorrencias
+    Route::get('/show', [
+        'as' => 'ocorrencia.show',
+        'uses' => 'OcorrenciasController@show'
+    ]);
+    //Rota para cadastro de ocorrencia.
+    Route::get('/create', [
+        'as' => 'ocorrencia.create',
+        'uses' => 'OcorrenciasController@create'
+    ]);
+    //Rota para persistência dos dados vindo do Form.
+    Route::post('/create/new', [
+        'as' => 'ocorrencia.new',
+        'uses' => 'OcorrenciasController@store'
+    ]);
+    //Rotas para atualizar dados ocorrencia
+    Route::get('/update/{id}', [
+        'as' => 'ocorrencia.update',
+        'uses' => 'OcorrenciasController@update'
+    ]);
+    Route::put('/update/updateConf', [
+        'as' => 'ocorrencia.updateConf',
+        'uses' => 'OcorrenciasController@updateConf'
+    ]);
+    //Rota para deletar ocorrencia
+    Route::get('/delete/{id}', [
+        'as' => 'ocorrencia.delete',
+        'uses' => 'OcorrenciasController@delete'
+    ]);
+
+});

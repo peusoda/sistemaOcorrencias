@@ -15,4 +15,9 @@ class Ocorrencia extends Model
         'turma_id',
         'servidor_id'
     ];
+    
+    public function turma()
+    {
+        return $this->belongsTo(Turma::class, 'turma_id');
+    }
 }
