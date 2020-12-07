@@ -34,7 +34,7 @@
                                 <tr class="active">
                                     <td>{{  $turma->codigo  }}</td>
                                     <td>{{  $turma->curso   }}</td>
-                                    <td><a class="btn btn-info btn-sm" href="{{ route('turmas.edit', $turma->id)}}"> Atualizar</a></td>
+                                    <td><a class="btn btn-info btn-sm" href="{{ route('turmas.edit', $turma->id)}}"> Atualizar</a>&ensp;</td>
                                     <td><a class="btn btn-danger btn-sm delete-confirm" href="{{ route('turmas.delete', $turma->id) }}">Excluir</a></td>
                                 </tr>
                             @endforeach
