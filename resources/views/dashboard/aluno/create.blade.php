@@ -11,6 +11,11 @@
     .panel-heading{
       font-size:150%;
     }
+    #img {
+      padding: 10px;
+      margin: 20px;
+      width: 150px;
+    }
   </style>
 @endpush
 @section('content')
@@ -24,7 +29,7 @@
             {{ Form::open(['route' => 'aluno.new', 'method' => 'POST', 'files' => true, 'enctype' => 'multipart/form-data']) }}  
               <table class="table" id="table">
                   <fieldset>
-
+                    <img src="" id="img"><br>
                     <div class="form-group">
                       {{ Form::label('imgAlu', 'Imagem do Aluno *', array('class' => 'col-md-2')) }}
                       <div class="col-md-6">
@@ -184,6 +189,19 @@
 @push('js')
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    {{-- Carregar a img ao ser adicionada --}}
+    <script>
+      function preview(event) {
+        var input = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function() {
+          var result = reader.result;
+          var img = document.getElementById('img');
+            img.src = result;
+        }
+        reader.readAsDataURL (input);
+      }
+    </script>
     {{-- Verificar extensão da imagem --}}
     <script>
       function verificaExtensao($input) {
