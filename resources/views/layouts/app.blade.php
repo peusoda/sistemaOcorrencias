@@ -49,7 +49,7 @@
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
         <a class="nav-link" href="{{ route('ocorrencia.show') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-pen-alt"></i>
             <span>Minhas Ocorrências</span></a>
         </li>
 
@@ -59,7 +59,7 @@
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
         <a class="nav-link" href="{{ route('servidor.show') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-chalkboard-teacher"></i>
             <span>Servidores</span></a>
         </li>
 
@@ -69,7 +69,7 @@
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
         <a class="nav-link" href="{{ route('turmas.index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-chalkboard"></i>
             <span>Turmas</span></a>
         </li>
 
@@ -79,7 +79,7 @@
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
         <a class="nav-link" href="{{ route('responsavel.show') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-user-shield"></i>
             <span>Responsáveis</span></a>
         </li>
 
@@ -89,7 +89,7 @@
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
         <a class="nav-link" href="{{ route('aluno.show') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-book-reader"></i>
             <span>Alunos</span></a>
         </li>
 
@@ -99,7 +99,7 @@
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
         <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-users"></i>
             <span>Usuários</span></a>
         </li>
 
