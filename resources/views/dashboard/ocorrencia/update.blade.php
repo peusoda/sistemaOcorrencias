@@ -49,15 +49,15 @@
                   <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                   <div class="col-md-4">
                     {{ Form::select (
-                                        'turma_id',
-                                        $turmas->pluck('codigo', 'id'),
-                                        old('turma_id'),
-                                        [
-                                        'class' => 'form-control chosen-select',
-                                        'required',
-                                        'autofocus'
-                                    ])
-                                }}
+                            'turma_id',
+                            $turmas->pluck('codigo', 'id'),
+                            old('turma_id'),
+                            [
+                            'class' => 'form-control chosen-select',
+                            'required',
+                            'autofocus'
+                        ])
+                    }}
                   </div>
                 </div>
 

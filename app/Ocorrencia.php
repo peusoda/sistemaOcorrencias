@@ -21,3 +21,14 @@ class Ocorrencia extends Model
         return $this->belongsTo(Turma::class, 'turma_id');
     }
 }
+
+class OcorrenciaAluno extends Model{
+    protected $table = 'aluno_has_ocorrencia';
+
+    protected $fillable = [
+        'id',
+        'aluno_id',
+        'ocorrencia_id',
+    ];
+    
+}

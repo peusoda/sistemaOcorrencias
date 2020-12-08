@@ -5,7 +5,10 @@ use Illuminate\Database\QueryException;
 use PhpParser\Node\Stmt\TryCatch;
 use Illuminate\Http\Request;
 use App\Ocorrencia;
+use App\OcorrenciaAluno;
 use App\Turma;
+use App\Aluno;
+
 class OcorrenciasController extends Controller
 {
     protected function show() {
@@ -18,9 +21,12 @@ class OcorrenciasController extends Controller
     protected function create() {
         $turmas = new Turma();
         $turmas = Turma::all();
+        $alunos = new Aluno();
+        $alunos = Aluno::all();
         
         return view('dashboard.ocorrencia.create')
-            ->with('turmas', $turmas);
+        ->with('turmas', $turmas)
+        ->with('alunos', $alunos);
     }
     protected function store(Request $request, Ocorrencia $ocorrencia) {
         $ocorrencia = new Ocorrencia();
@@ -29,10 +35,19 @@ class OcorrenciasController extends Controller
         $ocorrencia->relato = $request->input('relato');
         $ocorrencia->data_ocorrencia = $request->input('data_ocorrencia');
         $ocorrencia->turma_id = $request->input('turma_id');
-      //  $ocorrencia->servidor_id = $request->input('servidor_id');
-
+        //  $ocorrencia->servidor_id = $request->input('servidor_id');
+        //dd($request->input('checkbox'));
+        
+        
         Try {
             if($ocorrencia->save()) {
+                $ocorrenciaAluno = new OcorrenciaAluno();
+                foreach ($request->input('checkbox') as $aluno) {
+                    $ocorrenciaAluno->aluno_id = $aluno;
+                    $ocorrenciaAluno->ocorrencia_id = $ocorrencia->id;
+                    $ocorrenciaAluno->save();
+                }
+        
                 /**
                  * O Método FLASH retorna junto com a rota servidor.show Uma mensagem ao realizar persistência. Na view (dashboard.servidor.show)
                  * possuí a inclusão da classe Flase 
