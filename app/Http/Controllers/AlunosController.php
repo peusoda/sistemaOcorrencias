@@ -7,14 +7,18 @@ use Illuminate\Http\Request;
 use App\Aluno;
 use App\Turma;
 use App\Responsavel;
+use Illuminate\Support\Facades\DB;
 class AlunosController extends Controller
 {
     protected function show() {
         $alunos = new Aluno();
         $alunos = Aluno::all();
+        $turmas = new Turma();
+        $turmas = Turma::all();
 
         return view('dashboard.aluno.show')
-            ->with('alunos', $alunos);
+            ->with('alunos', $alunos)
+            ->with('turmas', $turmas);
     }
     protected function create() {
         $turmas = new Turma();
@@ -124,5 +128,18 @@ class AlunosController extends Controller
             flash('Não foi possível deletar dados do Aluno, tente novamente!')->error();
             return redirect(route('aluno.show'));
         }  
+    }
+
+    protected function filterTurma(Request $request) {
+        $alunos = new Aluno();
+        $turmas = new Turma();
+        $turmas = Turma::all();
+        $id = $request->input('turma');
+        $alunos = Aluno::where('turma_id', $id)
+            ->get();
+        
+        return view('dashboard.aluno.show')
+            ->with('alunos', $alunos)
+            ->with('turmas', $turmas);                
     }
 }

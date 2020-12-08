@@ -122,6 +122,10 @@ Route::group(['prefix' => 'aluno'], function(){
         'as' => 'aluno.delete',
         'uses' => 'AlunosController@delete'
     ]);
+    Route::post('/filter', [
+        'as' => 'aluno.filter',
+        'uses' => 'AlunosController@filterTurma'
+    ]);
 });
 
 //Grupo de rotas de acesso para o CRUD Ocorrencias

@@ -15,6 +15,27 @@
                         <!-- Redirecionando para a rota de cadastro -->
                         <div class="btn"> <a href="{{ route('aluno.create') }}" id="btn">Cadastrar </a></div>
                     </button>
+                    <div>
+                        <form action="{{ route('aluno.filter') }}" method="post">
+                            @csrf
+                            <select 
+                                style="width: 230px; margin: 10px;"
+                                id="turma"
+                                class="select-list"
+                                name="turma">
+                                <option autofocus>Selecione uma Turma</option>
+                                @foreach($turmas as $turma)
+                                    <option
+                                        class="price-option"  
+                                        value="{{ $turma->id }}">{{ $turma->codigo }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <button 
+                            class="btn-outline-success"
+                            type="submit">Filtrar</button>
+                        </form>
+                    </div>
                 </div>
                 @include('flash::message')
                 <div class="card-body">
@@ -43,7 +64,6 @@
                                     <td><a class="btn btn-danger btn-sm delete-confirm"
                                         href="{{ route('aluno.delete', $aluno->id) }}">
                                         Excluir </a></td>
-                                
                             </tr>
                             @endforeach
 
