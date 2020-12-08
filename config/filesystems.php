@@ -64,6 +64,12 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'archive' => [
+            'driver' => 'local',
+            'root' => public_path('storage/alunos'),
+            'url' => env('APP_URL').'/public',
+        ],
+
     ],
 
     /*

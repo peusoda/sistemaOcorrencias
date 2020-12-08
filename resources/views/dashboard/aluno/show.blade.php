@@ -22,7 +22,7 @@
                                 style="width: 230px; margin: 10px;"
                                 id="turma"
                                 class="select-list"
-                                name="turma">
+                                name="turma" required>
                                 <option autofocus>Selecione uma Turma</option>
                                 @foreach($turmas as $turma)
                                     <option

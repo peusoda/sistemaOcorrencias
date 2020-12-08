@@ -33,7 +33,7 @@
                           <div class="form-group">
                             {{ Form::label('imgAlu', 'Imagem do Aluno *', array('class' => 'col-md-2')) }}
                             <div class="col-md-6">
-                              <input type="file" class="form-control" name="imgAlu" id="imgAlu" onchange=" verificaExtensao(this); preview(event)" required>
+                              <input type="file" class="form-control" name="imgAlu" id="imgAlu" onchange=" verificaExtensao(this); preview(event)">
                             </div>
                           </div>
                           <input type="hidden" value="{{ $aluno->id }}" name="id">  

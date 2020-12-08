@@ -40,7 +40,7 @@
                         onchange=" verificaExtensao(this); preview(event)"
                         accept="image/*"
                         capture="environment"
-                        required>
+                        >
                       </div>
                     </div>
                     <!-- Text input-->

@@ -8,6 +8,8 @@ use App\Aluno;
 use App\Turma;
 use App\Responsavel;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+
 class AlunosController extends Controller
 {
     protected function show() {
@@ -54,6 +56,17 @@ class AlunosController extends Controller
                  * O Método FLASH retorna junto com a rota servidor.show Uma mensagem ao realizar persistência. Na view (dashboard.servidor.show)
                  * possuí a inclusão da classe Flase 
                  */
+                $idAluno = Aluno::max('id');
+                $nomeImage = $idAluno;
+
+                if($request->hasFile('imgAlu') && $request->file('imgAlu')->isValid()){
+                  $extensao = $request->imgAlu->extension();
+                  $nomeImage = "{$nomeImage}.{$extensao}";
+                  $request->imgAlu->storeAs($idAluno, $nomeImage, 'archive');
+                  $aluno->image = $nomeImage;
+                  $aluno->save();
+                }
+
                 flash('Aluno cadastrado com sucesso!')->success();
                 return redirect(route('aluno.show'));
             }
@@ -94,16 +107,40 @@ class AlunosController extends Controller
         $aluno->obs_pedagogica = $request->input('obs_pedagogica');
         $aluno->turma_id = $request->input('turma_id');
         $aluno->responsavel_id = $request->input('responsavel_id');
-        $aluno->image = "";
-        Try {
-            if($aluno->save()) {
+        Try {   
+            if($request->hasFile('imgAlu') && $request->file('imgAlu')->isValid()) {
+                if($aluno->image) {
+                    $file = public_path()."/storage/alunos/".$aluno->id."/".$aluno->image;
+                    File::delete($file);
+                    $file = public_path()."/storage/alunos/".$aluno->id;
+                    rmdir($file);
+                    $nomeImage = $aluno->id;
+                    $extensao = $request->imgAlu->extension();
+                    $nomeImage = "{$nomeImage}.{$extensao}";
+                    $request->imgAlu->storeAs($aluno->id, $nomeImage, 'archive');
+                    $aluno->image = $nomeImage;
+                } else {
+                    $nomeImage = $aluno->id;
+                    $aluno->image = $nomeImage;
+                    $extensao = $request->imgAlu->extension();
+                    $nomeImage = "{$nomeImage}.{$extensao}";
+                    $request->imgAlu->storeAs($aluno->id, $nomeImage, 'archive');
+                    $aluno->save();
+                }
+            } else {
+                if($aluno->image) {
+                    $aluno->image = $aluno->image;
+                }
+            }
+                
+            $aluno->save();
                 /**
                  * O Método FLASH retorna junto com a rota servidor.show Uma mensagem ao realizar persistência. Na view (dashboard.servidor.show)
                  * possuí a inclusão da classe Flase 
                  */
-                flash('Dados do aluno atualizado com sucesso!')->success();
-                return redirect(route('aluno.show'));
-            }
+            flash('Dados do aluno atualizado com sucesso!')->success();
+            return redirect(route('aluno.show'));
+            
         } catch(QueryException $ex) {
             flash('Não foi possível atualizar dados do Aluno, tente novamente!')->error();
             return redirect(route('aluno.show'));
@@ -121,8 +158,14 @@ class AlunosController extends Controller
                  * O Método FLASH retorna junto com a rota servidor.show Uma mensagem ao realizar persistência. Na view (dashboard.servidor.show)
                  * possuí a inclusão da classe Flase 
                  */
-                flash('Dados do aluno deletado com sucesso!')->success();
-                return redirect(route('aluno.show'));
+                if($aluno->image) {
+                    $file = public_path()."/storage/alunos/".$aluno->id."/".$aluno->image;
+                    File::delete($file);
+                    $file = public_path()."/storage/alunos/".$aluno->id;
+                    rmdir($file);
+                }
+                    flash('Dados do aluno deletado com sucesso!')->success();
+                    return redirect(route('aluno.show'));
             }
         } catch(QueryException $ex) {
             flash('Não foi possível deletar dados do Aluno, tente novamente!')->error();
