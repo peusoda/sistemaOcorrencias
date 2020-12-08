@@ -19,7 +19,7 @@ class TurmaController extends Controller
     public function index()
     {
         $turmas = Turma::all();
-        return view('dashboard/turma/index')->with('turmas', $turmas);
+        return view('dashboard/turma/show')->with('turmas', $turmas);
     }
 
     /**
@@ -80,7 +80,7 @@ class TurmaController extends Controller
     public function edit($id)
     {
         $turma = Turma::find($id);
-        return view('dashboard/turma/edit')->with('turma', $turma);
+        return view('dashboard/turma/update')->with('turma', $turma);
     }
 
     /**
