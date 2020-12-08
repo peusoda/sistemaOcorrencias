@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Listagem de todos os alunos cadastrados no sistema
+                <div class="card-header"><strong>Alunos cadastrados no sistema</strong>
                     <button type="submit" class="btn btn-primary btnp">
                         <!-- Redirecionando para a rota de cadastro -->
                         <div class="btn"> <a href="{{ route('aluno.create') }}" id="btn">Cadastrar </a></div>
@@ -107,8 +107,8 @@
             event.preventDefault();
             const url = $(this).attr('href');
             swal({
-                title: 'Quer mesmo excluir esse Aluno?',
-                text: 'O Aluno será excluído permanentemente.',
+                title: 'Quer mesmo excluir esse aluno?',
+                text: 'O aluno será excluído permanentemente.',
                 icon: 'warning',
                 buttons: ["Não", "Sim"],
             }).then(function (value) {
