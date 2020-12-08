@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Turmas cadastradas no sistema
+                <div class="card-header"><b>Turmas cadastradas no sistema</b>
                     <button type="submit" class="btn btn-primary btnp">
                         <div class="btn"> <a href="{{ Route('turmas.create') }}" id="btn">Cadastrar </a></div>
                     </button>
