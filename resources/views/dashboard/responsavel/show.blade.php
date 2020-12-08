@@ -86,8 +86,8 @@
             event.preventDefault();
             const url = $(this).attr('href');
             swal({
-                title: 'Quer mesmo excluir esse Aluno?',
-                text: 'O Aluno será excluído permanentemente.',
+                title: 'Quer mesmo excluir esse responsável?',
+                text: 'O responsável será excluído permanentemente.',
                 icon: 'warning',
                 buttons: ["Não", "Sim"],
             }).then(function (value) {

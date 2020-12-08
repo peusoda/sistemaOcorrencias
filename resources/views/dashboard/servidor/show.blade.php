@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Listagem de todos os servidores cadastrados no sistema
+                <div class="card-header"><strong>Servidores cadastrados no sistema</strong>
                     <button type="submit" class="btn btn-primary btnp">
                         <!-- Redirecionando para a rota de cadastro -->
                         <div class="btn"> <a href="{{ route('servidor.create') }}" id="btn">Cadastrar </a></div>
