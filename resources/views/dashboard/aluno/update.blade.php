@@ -11,6 +11,11 @@
     .panel-heading{
       font-size:150%;
     }
+    #img {
+      padding: 10px;
+      margin: 20px;
+      width: 150px;
+    }
     </style>
 @endpush
 @section('content')
@@ -24,6 +29,13 @@
                   {{ Form::model($aluno, ['route' => 'aluno.updateConfirm', 'method' => 'PUT', 'files' => true, 'enctype' => 'multipart/form-data']) }}  
                     <table class="table" id="table">
                         <fieldset>
+                          <img src="{{ asset('storage/alunos/'.$aluno->id.'/'.$aluno->image) }}" id="img"><br>
+                          <div class="form-group">
+                            {{ Form::label('imgAlu', 'Imagem do Aluno *', array('class' => 'col-md-2')) }}
+                            <div class="col-md-6">
+                              <input type="file" class="form-control" name="imgAlu" id="imgAlu" onchange=" verificaExtensao(this); preview(event)" required>
+                            </div>
+                          </div>
                           <input type="hidden" value="{{ $aluno->id }}" name="id">  
                             <!-- Text input-->
                             <div class="form-group">
@@ -218,8 +230,34 @@
 @endsection
 
 @push('js')
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  {{-- Carregar a img ao ser adicionada --}}
+  <script>
+    function preview(event) {
+      var input = event.target.files[0];
+      var reader = new FileReader();
+      reader.onload = function() {
+        var result = reader.result;
+        var img = document.getElementById('img');
+          img.src = result;
+      }
+      reader.readAsDataURL (input);
+    }
+  </script>
+  {{-- Verificar extensão da imagem --}}
+  <script>
+    function verificaExtensao($input) {
+      var extPermitidas = ['jpg', 'png', 'jpeg'];
+      var extArquivo = $input.value.split('.').pop();
+
+      if(typeof extPermitidas.find(function(ext){ return extArquivo == ext; }) == 'undefined') {
+          alert('Extensão "' + extArquivo + '" não permitida!\n Adicione um arquivo com a extensões: ".png", "jpeg" ou ".jpg"');
+          document.getElementById("imgProd").value = ''
+      }
+    }
+  </script>
+    
 @endpush    
 
 
