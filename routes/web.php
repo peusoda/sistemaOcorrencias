@@ -102,6 +102,11 @@ Route::group(['prefix' => 'aluno'], function(){
        'as' => 'aluno.show',
        'uses' => 'AlunosController@show' 
     ]);
+    Route::get('/perfil', function () { 
+
+        return view('dashboard.aluno.perfil');
+        
+        });
     Route::get('/create', [
         'as' => 'aluno.create',
         'uses' => 'AlunosController@create'

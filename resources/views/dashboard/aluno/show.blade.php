@@ -55,7 +55,7 @@
                         <tbody>
                         @foreach($alunos as $aluno)
                             <tr class="active">
-                                <td>{{ $aluno->nome }}</td>
+                                <td><a href="{{ route('aluno.perfil') }}">{{ $aluno->nome }}</a></td>
                                 <td>{{ $aluno->turma->codigo }}</td>
                                 <td>{{ $aluno->municipio }}</td>
                                 <td>{{ $aluno->responsavel->nome }}</td>
