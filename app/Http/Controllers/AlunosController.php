@@ -185,4 +185,9 @@ class AlunosController extends Controller
             ->with('alunos', $alunos)
             ->with('turmas', $turmas);                
     }
+
+    protected function perfil() {
+        
+        return view('dashboard.aluno.perfil');
+    }
 }

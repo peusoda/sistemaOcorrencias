@@ -96,37 +96,44 @@ Route::group(['prefix' => 'responsavel'], function(){
     ]);
 
 });
-
+//Grupos de Rotas para acesso ao CRUD Alunos.
 Route::group(['prefix' => 'aluno'], function(){
+    //Apresentação de todos alunos
     Route::get('/show', [
        'as' => 'aluno.show',
        'uses' => 'AlunosController@show' 
     ]);
-    Route::get('/perfil', function () { 
-
-        return view('dashboard.aluno.perfil');
-        
-        });
+    //Apresentação do Perfil do aluno
+    Route::get('/perfil', [ 
+        'as' => 'aluno.perfil',
+        'uses' => 'AlunosController@perfil'
+    ]);
+    //Rota para abrir tela de cadastro de aluno
     Route::get('/create', [
         'as' => 'aluno.create',
         'uses' => 'AlunosController@create'
     ]);
+    //Rota para salvar dados do formulário de cadastro de aluno.
     Route::post('/new', [
         'as' => 'aluno.new',
         'uses' => 'AlunosController@store'
     ]);
+    //Rota para caregar dados do aluno para atualização.
     Route::get('/update/{id}', [
         'as' => 'aluno.update',
         'uses' => 'AlunosController@update'
     ]);
+    //Rota para atualização dos dados do form do ALuno.
     Route::put('/update/updateConf', [
         'as' => 'aluno.updateConfirm',
         'uses' => 'AlunosController@updateConf'
     ]);
+    //Rota para deletar um aluno da base de dados.
     Route::get('/delete/{id}', [
         'as' => 'aluno.delete',
         'uses' => 'AlunosController@delete'
     ]);
+    //Rota para filtrar alunos por turma na apresentação.
     Route::post('/filter', [
         'as' => 'aluno.filter',
         'uses' => 'AlunosController@filterTurma'
