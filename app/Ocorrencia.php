@@ -32,3 +32,14 @@ class OcorrenciaAluno extends Model{
     ];
     
 }
+
+class OcorrenciaMotivo extends Model{
+    protected $table = 'ocorrencia_has_motivo';
+
+    protected $fillable = [
+        'id',
+        'tipo_ocorrencia_id',
+        'ocorrencia_id',
+    ];
+    
+}
