@@ -54,6 +54,10 @@ class OcorrenciasController extends Controller
                     $ocorrenciaAluno->ocorrencia_id = $ocorrencia->id;
                     $ocorrenciaAluno->save();
                 }
+                $ocorrenciaMotivo = new OcorrenciaMotivo();
+                $ocorrenciaMotivo->ocorrencia_id = $ocorrencia->id;
+                $ocorrenciaMotivo->tipo_ocorrencia_id = $request->input('tipo_id');
+                $ocorrenciaMotivo->save();
         
                 /**
                  * O Método FLASH retorna junto com a rota servidor.show Uma mensagem ao realizar persistência. Na view (dashboard.servidor.show)
