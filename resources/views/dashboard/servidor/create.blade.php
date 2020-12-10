@@ -21,7 +21,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Cadastro de Servidor</div>
+                <div class="card-header"><strong>Cadastro de Servidor</strong></div>
                 <div class="card-body">
                   <div class="portlet-body table-responsive">
                   {{ Form::open(['route' => 'servidor.new', 'method' => 'POST', 'files' => true, 'enctype' => 'multipart/form-data']) }}  
@@ -32,10 +32,10 @@
                             <!-- Text input-->
                             {{-- Nome do Servidor --}}
                             <div class="form-group">
-                            {{ Form::label('nome', 'Nome *', array('class' => 'col-md-2 control-label')) }}
+                            {{ Form::label('nome', 'Nome do servidor*', array('class' => 'col-md-2 control-label')) }}
                               <!--<label class="col-md-2 control-label" for="Nome">Nome<h11>*</h11></label>  -->
                               <div class="col-md-8 ">
-                              <input id="nome" name="nome" placeholder="Nome" class="form-control input-md" required="true" type="text">
+                              <input id="nome" name="nome" class="form-control input-md" required="true" type="text">
                               </div>
                             </div>
 
@@ -44,7 +44,7 @@
                             {{ Form::label('siape', 'Siape *', array('class' => 'col-md-5 control-label'))}}
                               <!--<label class="col-md-5 control-label" >Siape<h11>*</h11></label>  -->
                               <div class="col-md-2">
-                              <input id="siape" name="siape" placeholder="Siape" class="form-control input-md" required="true" type="text">
+                              <input id="siape" name="siape" class="form-control input-md" required="true" type="text">
                             </div>
                         </div>
                             <div class="form-group">
@@ -63,7 +63,7 @@
                             {{ Form::label('email', 'E-mail *', array('class' => 'col-md-5 control-label') )}}
                             <!--<label class="col-md-5 control-label" for="profissao">Naturalidade<h11>*</h11></label>  -->
                               <div class="col-md-4">
-                              <input id="email" name="email" type="email" placeholder="e-mail" class="form-control input-md" required="true">
+                              <input id="email" name="email" type="email" class="form-control input-md" required="true">
                               </div>
                               </div>
 
@@ -71,7 +71,7 @@
                               {{ Form::label('contato', 'Contato *', array('class' => 'col-md-5 control-label')) }}
                             <!--<label class="col-md-5 control-label" for="#">Município<h11>*</h11></label>  -->
                               <div class="col-md-4">
-                              <input id="contato" name="contato" type="text" placeholder="contato" class="form-control input-md" required="">
+                              <input id="contato" name="contato" type="text" class="form-control input-md" required="">
                               </div>
                               </div>
                             </div>

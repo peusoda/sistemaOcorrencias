@@ -23,7 +23,7 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header">Cadastro de Aluno</div>
+        <div class="card-header"><strong>Cadastro de Aluno</strong></div>
           <div class="card-body">
             <div class="portlet-body table-responsive">
             {{ Form::open(['route' => 'aluno.new', 'method' => 'POST', 'files' => true, 'enctype' => 'multipart/form-data']) }}  
@@ -31,7 +31,7 @@
                   <fieldset>
                     <img src="" id="img"><br>
                     <div class="form-group">
-                      {{ Form::label('imgAlu', 'Imagem do Aluno *', array('class' => 'col-md-2')) }}
+                      {{ Form::label('imgAlu', 'Imagem do aluno *', array('class' => 'col-md-2')) }}
                       <div class="col-md-6">
                         <input type="file" 
                         class="form-control"
@@ -45,9 +45,9 @@
                     </div>
                     <!-- Text input-->
                     <div class="form-group">
-                      {{ Form::label('nome', 'Nome *', array('class' => 'col-md-2 control-label')) }}
+                      {{ Form::label('nome', 'Nome do aluno*', array('class' => 'col-md-2 control-label')) }}
                       <div class="col-md-8 ">
-                      <input id="nome" name="nome" placeholder="insira o nome do aluno" class="form-control input-md" required="true" type="text">
+                      <input id="nome" name="nome" class="form-control input-md" required="true" type="text">
                       </div>
                     </div>
 
@@ -66,7 +66,7 @@
                       <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                       <div class="col-md-4"> 
                         <select value='' id="sexo" name="sexo" class="form-control chosen-select" required>
-                          <option id="nada" name="nada" value="">Selecione um sexo</option>
+                          <option id="nada" name="nada" value="">Selecione uma opção</option>
                           <option id="sexo" name="sexo" value="m">Masculino</option>
                           <option id="sexo" name="sexo" value="f">Feminino</option>
                           <option id="sexo" name="sexo" value="s">Não declarado</option>
@@ -77,14 +77,14 @@
                       <div class="form-group">
                       {{ Form::label('naturalidade', 'Naturalidade *', array('class' => 'col-md-5 control-label')) }}
                         <div class="col-md-4">
-                          <input id="naturalidade" name="naturalidade" type="text" placeholder="Rubim" class="form-control input-md" required="true">
+                          <input id="naturalidade" name="naturalidade" type="text" class="form-control input-md" required="true">
                         </div>
                       </div>
 
                       <div class="form-group">
                         {{ Form::label('municipio', 'Município *', array('class' => 'col-md-5 control-label'))}}
                         <div class="col-md-4">
-                        <input id="municipio" name="municipio" type="text" placeholder="Rubim" class="form-control input-md" required="true">
+                        <input id="municipio" name="municipio" type="text" class="form-control input-md" required="true">
                         </div>
                       </div>
 
@@ -92,7 +92,7 @@
                         {{ Form::label('transporte', 'Transporte *', array('class' => 'col-md-5 control-label'))}}
                         <div class="col-md-4"> 
                           <select value='' id="transporte" name="transporte" class="form-control chosen-select" required>
-                            <option id="nada" name="nada" value="">Selecione um transporte</option>
+                            <option id="nada" name="nada" value="">Selecione uma opção</option>
                             <option id="transporte" name="transporte" value="bicicleta">Bicileta</option>
                             <option id="transporte" name="transporte" value="pe">Caminhada</option>
                             <option id="transporte" name="transporte" value="familiar">Familiar</option>
@@ -119,28 +119,28 @@
                       <div class="form-group">
                         {{ Form::label('apelido', 'Apelido', array('class' => 'col-md-5 control-label'))}}
                         <div class="col-md-4">
-                          <input id="apelido" name="apelido" type="text" placeholder="insira o apelido" class="form-control input-md" >
+                          <input id="apelido" name="apelido" type="text" class="form-control input-md" >
                         </div>
                       </div>
 
                       <div class="form-group">
                         {{ Form::label('obs_napne', 'Observações', array('class' => 'col-md-5 control-label')) }}
                         <div class="col-md-12">
-                          <input id="	obs_napne" name="	obs_napne" type="text" placeholder="insira observações" class="form-control input-md">
+                          <input id="	obs_napne" name="	obs_napne" type="text" class="form-control input-md">
                         </div>
                       </div>
 
                       <div class="form-group">
                         {{ Form::label('obs_medica', 'Observações Médicas', array('class' => 'col-md-5 control-label')) }}
                         <div class="col-md-12">
-                          <input id="obs_medica" name="obs_medica" type="text" placeholder="insira as observações médicas" class="form-control input-md">
+                          <input id="obs_medica" name="obs_medica" type="text" class="form-control input-md">
                         </div>
                       </div>
 
                       <div class="form-group">
                         {{ Form::label('obs_pedagogica', 'Observações Pedagógicas', array('class' => 'col-md-5 control-label')) }}
                         <div class="col-md-12">
-                          <input id="obs_pedagogica" name="obs_pedagogica" type="text" placeholder="insira as observações pedagógicas" class="form-control input-md">
+                          <input id="obs_pedagogica" name="obs_pedagogica" type="text" class="form-control input-md">
                         </div>
                       </div>
 
@@ -151,7 +151,7 @@
                         <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                         <div class="col-md-4"> 
                           <select value='' id="turma" name="turma" class="form-control chosen-select" required>
-                            <option id="nada" name="nada" value="">Selecione uma turma</option>
+                            <option id="nada" name="nada" value="">Selecione uma opção</option>
                             @foreach($turmas as $turma)
                               <option value="{{ $turma->id }}">{{ $turma->codigo }}</option>
                             @endforeach
@@ -164,7 +164,7 @@
                         <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                         <div class="col-md-8"> 
                           <select value='' id="responsavel" name="responsavel" class="form-control chosen-select" required>
-                            <option id="nada" name="nada" value="">Selecione um responsável</option>
+                            <option id="nada" name="nada" value="">Selecione uma opção</option>
                             @foreach($responsaveis as $responsavel)
                               <option value="{{ $responsavel->id }}">{{ $responsavel->nome }}</option>
                             @endforeach

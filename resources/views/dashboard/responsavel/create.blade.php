@@ -21,7 +21,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Cadastro de Responsável</div>
+                <div class="card-header"><strong>Cadastro de Responsável</strong></div>
                 <div class="card-body">
                     <div class="portlet-body table-responsive">
                         {{ Form::open(['route' => 'responsavel.new', 'method' => 'POST', 'files' => true, 'enctype' => 'multipart/form-data']) }}
