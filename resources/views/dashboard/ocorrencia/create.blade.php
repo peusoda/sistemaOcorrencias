@@ -1,8 +1,13 @@
 @extends('layouts.app')
 @push('style')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{ asset('/js/select2/select2.min.css')  }}" crossorigin="anonymous" />
 
 <style>
+  .select2-container {
+    width: 100% !important;
+    padding: 0;
+  }
   h11 {
     color: red;
   }
@@ -35,6 +40,20 @@
           <div class="portlet-body table-responsive">
             {{ Form::open(['route' => 'ocorrencia.new','id' => 'form', 'method' => 'POST', 'files' => true, 'enctype' => 'multipart/form-data']) }}
             <fieldset>
+
+             <!-- Select Basic -->
+             <div class="form-group">
+                {{ Form::label('motivo', 'Motivo da Ocorrência *', array('class' => 'col-md-12 control-label')) }}
+                <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
+                <div class="col-md-12">
+                  <select value='' id="tipo_id" name="tipo_id"  class="form-control chosen-select" required>
+                    <option id="nada" name="nada" value="">Selecione o motivo</option>
+                    @foreach($tipos as $motivo)
+                    <option value="{{ $motivo->id }}">{{ $motivo->descricao }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
 
               <!-- Text input-->
               <div class="form-group">
@@ -108,7 +127,6 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-<script src="{{ asset('/js/jquery.min.js')  }}"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
 <script>
@@ -137,5 +155,15 @@
   });
 
 });
+
+$(document).ready(function () {
+      $('[name=tipo_id]').select2({
+            theme: 'bootstrap4',
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).data('placeholder'),
+            allowClear: Boolean($(this).data('allow-clear')),
+        });
+    });
+    
 </script>
 @endpush

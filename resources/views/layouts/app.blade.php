@@ -216,6 +216,7 @@
         
         
         <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('/js/select2/select2.min.js')  }}"></script>
 
         <!-- Core plugin JavaScript-->
         <script src="{{ asset('/js/jquery.easing.min.js') }}"></script>

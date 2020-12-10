@@ -5,9 +5,12 @@ use Illuminate\Database\QueryException;
 use PhpParser\Node\Stmt\TryCatch;
 use Illuminate\Http\Request;
 use App\Ocorrencia;
+use App\TipoOcorrencia;
 use App\OcorrenciaAluno;
 use App\Turma;
 use App\Aluno;
+use App\OcorrenciaMotivo;
+
 
 class OcorrenciasController extends Controller
 {
@@ -23,10 +26,14 @@ class OcorrenciasController extends Controller
         $turmas = Turma::all();
         $alunos = new Aluno();
         $alunos = Aluno::all();
+        $tipos = new TipoOcorrencia();
+        $tipos = TipoOcorrencia::all();
         
         return view('dashboard.ocorrencia.create')
         ->with('turmas', $turmas)
-        ->with('alunos', $alunos);
+        ->with('alunos', $alunos)
+        ->with('tipos', $tipos);
+
     }
     protected function store(Request $request, Ocorrencia $ocorrencia) {
         $ocorrencia = new Ocorrencia();
