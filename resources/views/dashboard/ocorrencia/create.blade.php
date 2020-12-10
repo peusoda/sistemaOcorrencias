@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @push('style')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" crossorigin="anonymous" />
 
 <style>
   h11 {
@@ -75,8 +76,9 @@
                 <table class="table display" id="table" cellspacing="0" width="100%">
                   <thead>
                     <tr>
-                    <th></th>
+                      <th></th>
                       <th>Nome</th>
+                      <th>Turma</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -84,6 +86,7 @@
                     <tr class="active" value="{{ $aluno->id }}">
                       <td><input  type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}"></td>
                       <td>{{ $aluno->nome }}</td>
+                      <td>{{ $aluno->turma->codigo }}</td>
                     </tr>
                     @endforeach
                   </tbody>
@@ -123,11 +126,15 @@
          'style': 'multi'
       },
       'order': [[1, 'asc']],*/
-      paging: false
+      dom: 'lrtip'
 
    });
 
    $(".dataTables_filter").hide();
+
+   $('#turma_id').on('change', function(){
+    table.search(this.value).draw();   
+  });
 
 });
 </script>
