@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('S-GO', 'Laravel') }}</title>
+    <title>{{ config('SIGO', 'Laravel') }}</title>
 
 
     <meta charset="utf-8">
@@ -39,7 +39,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">S-GO <sup>IFNMG</sup></div>
+        <div class="sidebar-brand-text mx-3">SIGO <sup>IFNMG</sup></div>
         </a>
 
         <!-- Divider -->
