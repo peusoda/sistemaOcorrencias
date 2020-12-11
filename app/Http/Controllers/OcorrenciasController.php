@@ -77,6 +77,11 @@ class OcorrenciasController extends Controller
         $turmas = Turma::all();
         $ocorrencia = new Ocorrencia();
         $ocorrencia = Ocorrencia::find($id);
+  /*      foreach($ocorrencia->ocorrenciaAluno as $oc){
+                echo $oc->aluno_id;
+        }
+        */
+
         
         return view('dashboard.ocorrencia.update')
             ->with('ocorrencia', $ocorrencia)

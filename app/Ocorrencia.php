@@ -20,6 +20,11 @@ class Ocorrencia extends Model
     {
         return $this->belongsTo(Turma::class, 'turma_id');
     }
+
+    public function ocorrenciaAluno()
+    {
+        return $this->hasMany(OcorrenciaAluno::class, 'ocorrencia_id');
+    }
 }
 
 class OcorrenciaAluno extends Model{
@@ -30,6 +35,11 @@ class OcorrenciaAluno extends Model{
         'aluno_id',
         'ocorrencia_id',
     ];
+
+    public function aluno()
+    {
+        return $this->hasOne(Aluno::class, 'id','aluno_id');
+    }
     
 }
 
