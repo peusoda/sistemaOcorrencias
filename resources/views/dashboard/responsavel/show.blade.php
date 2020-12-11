@@ -27,8 +27,8 @@
                                     <th>Cpf</th>
                                     <th>E-mail</th>
                                     <th>Contato</th>
-                                    <th>Update</th>
-                                    <th>Delete</th>
+                                    <th>Atualizar</th>
+                                    <th>Excluir</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -28,8 +28,8 @@
                                 <th>Siape</th>
                                 <th>Contato</th>
                                 <th>Função</th>
-                                <th>Update</th>
-                                <th>Delete</th>
+                                <th>Atualizar</th>
+                                <th>Excluir</th>
                             </tr>
                         </thead>
                         <tbody>

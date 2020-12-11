@@ -3,8 +3,9 @@
 @push('style')
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" crossorigin="anonymous" />
-
+    
 @endpush
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -24,8 +25,8 @@
                                 <tr>
                                     <th>Código</th>
                                     <th>Curso</th>
-                                    <th>Update</th>
-                                    <th>Delete</th>
+                                    <th>Atualizar</th>
+                                    <th>Excluir</th>
                                 </tr>
                             </thead>
                             <tbody>

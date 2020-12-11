@@ -48,8 +48,8 @@
                                 <th>Turma</th>
                                 <th>Município</th>
                                 <th>Responsável</th>
-                                <th>Update</th>
-                                <th>Delete</th>
+                                <th>Atualizar</th>
+                                <th>Excluir</th>
                             </tr>
                         </thead>
                         <tbody>

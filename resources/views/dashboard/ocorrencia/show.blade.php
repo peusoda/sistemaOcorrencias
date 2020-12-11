@@ -25,8 +25,8 @@
                                 <tr>
                                     <th>Turma</th>
                                     <th>Relato</th>
-                                    <th>Update</th>
-                                    <th>Delete</th>
+                                    <th>Atualizar</th>
+                                    <th>Excluir</th>
                                 </tr>
                             </thead>
                             <tbody>

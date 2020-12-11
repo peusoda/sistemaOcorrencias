@@ -26,6 +26,15 @@
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
     @stack('style')
+    <style>
+      th {  
+          border-right: 1px solid #ddd;
+        }
+      .active:hover {
+        background-color: rgb(194, 218, 189);
+        font-weight: 800;
+      }
+    </style>
 </head>
 <body id="page-top">
 
