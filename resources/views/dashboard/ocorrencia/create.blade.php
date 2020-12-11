@@ -151,7 +151,7 @@
    $(".dataTables_filter").hide();
 
    $('#turma_id').on('change', function(){
-    table.search(this.value).draw();   
+    table.search(this.selectedOptions[0].textContent).draw();   
   });
 
 });
