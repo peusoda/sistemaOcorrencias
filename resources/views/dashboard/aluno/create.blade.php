@@ -175,7 +175,9 @@
                   </fieldset>
                 </form>
               </table>
-              {{ Form::submit('Cadastrar Aluno', ['class' => 'btn btn-success']) }}
+              <div class="col-md-12">
+                {{ Form::submit('Cadastrar Aluno', ['class' => 'btn btn-success btn-block btn-lg']) }}
+              </div>
               {{ Form::close() }}
             </div>
           </div>
