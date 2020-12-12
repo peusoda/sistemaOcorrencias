@@ -58,7 +58,9 @@ color:red;
                             @enderror
                           </div>
                         </div>
-                        <button class="btn btn-success" type="submit">Salvar</button>
+                        <div class="col-md-12">
+                          <button class="btn btn-success btn-block btn-lg" type="submit">Salvar Turma</button>
+                        </div>
                       </form>
                     </table>
                   </div>

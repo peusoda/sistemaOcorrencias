@@ -20,7 +20,7 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header">Cadastro de Responsavel</div>
+        <div class="card-header">Cadastro de Responsável</div>
         <div class="card-body">
           <div class="portlet-body table-responsive">
             {{ Form::model($responsavel, ['route' => 'responsavel.updateConf', 'method' => 'PUT', 'files' => true, 'enctype' => 'multipart/form-data']) }}
@@ -68,7 +68,9 @@
           </fieldset>
 
           </table>
-          {{ Form::submit('Atualizar Responsavel', ['class' => 'btn btn-success']) }}
+          <div class="col-md-12">
+            {{ Form::submit('Atualizar Responsável', ['class' => 'btn btn-success btn-block btn-lg']) }}
+          </div>
           {{ form::close() }}
         </div>
 

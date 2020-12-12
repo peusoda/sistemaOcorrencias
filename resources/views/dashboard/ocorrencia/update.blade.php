@@ -120,7 +120,9 @@
 
               <!-- Button (Double) -->
             </fieldset>
-            {{ Form::submit('Atualizar Ocorrencia', ['class' => 'btn btn-success']) }}
+            <div class="col-md-12">
+              {{ Form::submit('Atualizar Ocorrência', ['class' => 'btn btn-success btn-block btn-lg']) }}
+            </div>
             {{ Form::close() }}
           </div>
         </div>

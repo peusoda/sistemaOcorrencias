@@ -77,7 +77,9 @@
                         </fieldset>
                           
                     </table>
-                    {{ Form::submit('Atualizar Servidor', ['class' => 'btn btn-success']) }}
+                    <div class="col-md-12">
+                      {{ Form::submit('Atualizar Servidor', ['class' => 'btn btn-success btn-block btn-lg']) }}
+                    </div>  
                       {{ form::close() }}
                   </div>
                   

@@ -112,7 +112,9 @@
                 </table>
               <!-- Button (Double) -->
             </fieldset>
-            {{ Form::submit('Cadastrar Ocorrencia', ['class' => 'btn btn-success']) }}
+            <div class="col-md-12">
+              {{ Form::submit('Cadastrar Ocorrência', ['class' => 'btn btn-success btn-block btn-lg']) }}
+            </div>            
             {{ Form::close() }}
           </div>
         </div>
