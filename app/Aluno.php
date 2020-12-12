@@ -32,4 +32,9 @@ class Aluno extends Model
     {
         return $this->belongsTo(Responsavel::class, 'responsavel_id');
     }
+
+    public function ocorrenciaAluno()
+    {
+        return $this->hasMany(OcorrenciaAluno::class, 'aluno_id');
+    }
 }

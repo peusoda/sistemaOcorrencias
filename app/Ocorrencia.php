@@ -25,6 +25,10 @@ class Ocorrencia extends Model
     {
         return $this->hasMany(OcorrenciaAluno::class, 'ocorrencia_id');
     }
+    public function tipo()
+    {
+        return $this->hasOne(OcorrenciaMotivo::class, 'ocorrencia_id','id');
+    }
 }
 
 class OcorrenciaAluno extends Model{
@@ -41,6 +45,10 @@ class OcorrenciaAluno extends Model{
         return $this->hasOne(Aluno::class, 'id','aluno_id');
     }
     
+    public function ocorrencia()
+    {
+        return $this->hasOne(Ocorrencia::class, 'id','ocorrencia_id');
+    }
 }
 
 class OcorrenciaMotivo extends Model{

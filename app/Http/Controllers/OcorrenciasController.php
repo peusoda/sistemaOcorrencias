@@ -42,17 +42,20 @@ class OcorrenciasController extends Controller
         $ocorrencia->relato = $request->input('relato');
         $ocorrencia->data_ocorrencia = $request->input('data_ocorrencia');
         $ocorrencia->turma_id = $request->input('turma_id');
+        $alunosCheck =  $request->input('checkbox');
         //  $ocorrencia->servidor_id = $request->input('servidor_id');
         //dd($request->input('checkbox'));
         
         
         Try {
             if($ocorrencia->save()) {
-                $ocorrenciaAluno = new OcorrenciaAluno();
-                foreach ($request->input('checkbox') as $aluno) {
-                    $ocorrenciaAluno->aluno_id = $aluno;
-                    $ocorrenciaAluno->ocorrencia_id = $ocorrencia->id;
-                    $ocorrenciaAluno->save();
+                if($alunosCheck){
+                    foreach ($alunosCheck as $aluno) {
+                        $ocorrenciaAluno = new OcorrenciaAluno();
+                        $ocorrenciaAluno->aluno_id = $aluno;
+                        $ocorrenciaAluno->ocorrencia_id = $ocorrencia->id;
+                        $ocorrenciaAluno->save();
+                    }
                 }
                 $ocorrenciaMotivo = new OcorrenciaMotivo();
                 $ocorrenciaMotivo->ocorrencia_id = $ocorrencia->id;
@@ -75,8 +78,13 @@ class OcorrenciasController extends Controller
     protected function update($id) {
         $turmas = new Turma();
         $turmas = Turma::all();
+        $alunos = new Aluno();
+        $alunos = Aluno::all();
         $ocorrencia = new Ocorrencia();
         $ocorrencia = Ocorrencia::find($id);
+        $tipos = new TipoOcorrencia();
+        $tipos = TipoOcorrencia::all();
+        
   /*      foreach($ocorrencia->ocorrenciaAluno as $oc){
                 echo $oc->aluno_id;
         }
@@ -85,7 +93,9 @@ class OcorrenciasController extends Controller
         
         return view('dashboard.ocorrencia.update')
             ->with('ocorrencia', $ocorrencia)
-            ->with('turmas', $turmas);
+            ->with('turmas', $turmas)
+            ->with('alunos', $alunos)
+            ->with('tipos', $tipos);
     }
 
     protected function updateConf(Request $request) {
@@ -96,8 +106,28 @@ class OcorrenciasController extends Controller
         $ocorrencia->relato = $request->input('relato');
         $ocorrencia->data_ocorrencia = $request->input('data_ocorrencia');
         $ocorrencia->turma_id = $request->input('turma_id');
+        $alunosCheck =  $request->input('checkbox');
+
         Try {
             if($ocorrencia->save()) {
+                $ocorrenciaAluno = new OcorrenciaAluno();
+                $aluno = OcorrenciaAluno::where('ocorrencia_id', $ocorrencia->id);
+                $aluno->delete();
+                if($alunosCheck){
+                    foreach ($alunosCheck as $aluno) {
+                        $ocorrenciaAluno = new OcorrenciaAluno();
+                        $ocorrenciaAluno->aluno_id = $aluno;
+                        $ocorrenciaAluno->ocorrencia_id = $ocorrencia->id;
+                        $ocorrenciaAluno->save();
+                    }
+                }
+                $motivo = new OcorrenciaMotivo();
+                $motivo = OcorrenciaMotivo::where('ocorrencia_id', $ocorrencia->id);
+                $motivo->delete();
+                $ocorrenciaMotivo = new OcorrenciaMotivo();
+                $ocorrenciaMotivo->ocorrencia_id = $ocorrencia->id;
+                $ocorrenciaMotivo->tipo_ocorrencia_id = $request->input('tipo_id');
+                $ocorrenciaMotivo->save();
                 /**
                  * O Método FLASH retorna junto com a rota ocorrencia.show Uma mensagem ao realizar persistência. Na view (dashboard.ocorrencia.show)
                  * possuí a inclusão da classe Flase 
