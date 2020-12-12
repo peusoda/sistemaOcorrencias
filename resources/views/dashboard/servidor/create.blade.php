@@ -78,8 +78,10 @@
                         </fieldset>
                           
                     </table>
-                    {{ Form::submit('Cadastrar Servidor', ['class' => 'btn btn-success']) }}
-                      {{ form::close() }}
+                    <div class="col-md-12">
+                        {{ Form::submit('Cadastrar Servidor', ['class' => 'btn btn-success btn-block btn-lg']) }}
+                    </div>
+                    {{ form::close() }}
                   </div>
                   
                   
