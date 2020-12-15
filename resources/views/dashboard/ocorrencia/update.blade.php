@@ -43,7 +43,7 @@
 
               <!-- Select Basic -->
               <div class="form-group">
-                {{ Form::label('tipo_id', 'Motivo da Ocorrência *', array('class' => 'col-md-12 control-label')) }}
+                {{ Form::label('tipo_id', 'Motivo da Ocorrência', array('class' => 'col-md-12 control-label required')) }}
                 <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                 <div class="col-md-12">
                   {{ Form::select (
@@ -61,7 +61,7 @@
               <input type="hidden" value="{{ $ocorrencia->id }}" name="id">
               <!-- Text input-->
               <div class="form-group">
-                {{ Form::label('disciplina', 'Disciplina *', array('class' => 'col-md-2 control-label')) }}
+                {{ Form::label('disciplina', 'Disciplina', array('class' => 'col-md-2 control-label required')) }}
                 <div class="col-md-8 ">
                   {{ Form::text('disciplina', 'old'('disciplina'), ['class' => 'form-control input-md', 'required']) }}
                 </div>
@@ -69,7 +69,7 @@
 
               <!-- Text input-->
               <div class="form-group">
-                {{ Form::label('data_ocorrencia', 'Data da Ocorrência *', array('class' => 'col-md-5 control-label')) }}
+                {{ Form::label('data_ocorrencia', 'Data da Ocorrência', array('class' => 'col-md-5 control-label required')) }}
                 <div class="col-md-3">
                   {{ Form::date('data_ocorrencia', 'old'('data_ocorrencia'), ['class' => 'form-control input-md', 'required']) }}
                 </div>
@@ -77,7 +77,7 @@
 
               <!-- Select Basic -->
               <div class="form-group">
-                {{ Form::label('turma_id', 'Turma *', array('class' => 'col-md-4 control-label')) }}
+                {{ Form::label('turma_id', 'Turma', array('class' => 'col-md-4 control-label required')) }}
                 <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                 <div class="col-md-4">
                   {{ Form::select (
@@ -93,7 +93,7 @@
               </div>
 
               <div class="form-group">
-                {{ Form::label('relato', 'Relato', array('class' => 'col-md-5 control-label')) }}
+                {{ Form::label('relato', 'Relato', array('class' => 'col-md-5 control-label required')) }}
                 <div class="col-md-12">
                   {{ Form::text('relato', 'old'('relato'), ['class' => 'form-control input-md']) }}
                 </div>

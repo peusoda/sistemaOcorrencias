@@ -5,9 +5,6 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" crossorigin="anonymous" />
     
 <style>
-h11 {
-color:red;
-}
 
 #logo {
         width:50%;
@@ -35,7 +32,7 @@ color:red;
                         @method('put')
                         <!-- Text input-->
                         <div class="form-group">
-                          <label class="col-md-2 control-label" for="codigo">Código<h11>*</h11></label>  
+                          <label class="col-md-2 control-label required" for="codigo">Código</label>  
                           <div class="col-md-8 ">
                           <input id="codigo" name="codigo" placeholder="" class="form-control input-md @error('codigo') is-invalid @enderror" required="" type="text" value="{{ $turma->codigo }}">
                           @error('codigo')
@@ -45,7 +42,7 @@ color:red;
                         </div>
                         <!-- Select Basic -->
                         <div class="form-group">
-                          <label class="col-md-2 control-label" for="curso">Curso<h11>*</h11></label>
+                          <label class="col-md-2 control-label required" for="curso">Curso</label>
                           <div class="col-md-2">
                             <select required id="curso" name="curso" class="form-control @error('curso') is-invalid @enderror" aria-selected="">
                               <option value=""></option>
@@ -59,7 +56,7 @@ color:red;
                           </div>
                         </div>
                         <div class="col-md-12">
-                          <button class="btn btn-success btn-block btn-lg" type="submit">Salvar Turma</button>
+                          <button class="btn btn-success btn-block btn-lg" type="submit">Atualizar Turma</button>
                         </div>
                       </form>
                     </table>

@@ -43,7 +43,7 @@
 
              <!-- Select Basic -->
              <div class="form-group">
-                {{ Form::label('motivo', 'Motivo da Ocorrência *', array('class' => 'col-md-12 control-label')) }}
+                {{ Form::label('motivo', 'Motivo da Ocorrência', array('class' => 'col-md-12 control-label required')) }}
                 <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                 <div class="col-md-12">
                   <select value='' id="tipo_id" name="tipo_id"  class="form-control chosen-select" required>
@@ -57,7 +57,7 @@
 
               <!-- Text input-->
               <div class="form-group">
-                {{ Form::label('disciplina', 'Disciplina *', array('class' => 'col-md-2 control-label')) }}
+                {{ Form::label('disciplina', 'Disciplina', array('class' => 'col-md-2 control-label required')) }}
                 <div class="col-md-8 ">
                   <input id="disciplina" name="disciplina" placeholder="insira a disciplina da ocorrência" class="form-control input-md" required="true" type="text">
                 </div>
@@ -65,7 +65,7 @@
 
               <!-- Text input-->
               <div class="form-group">
-                {{ Form::label('data_ocorrencia', 'Data da Ocorrência *', array('class' => 'col-md-3 control-label')) }}
+                {{ Form::label('data_ocorrencia', 'Data da Ocorrência', array('class' => 'col-md-3 control-label required')) }}
                 <div class="col-md-3">
                   <input id="data_ocorrencia" name="data_ocorrencia" placeholder="DD/MM/AAAA" class="form-control input-md" required="true" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
                 </div>
@@ -73,7 +73,7 @@
 
               <!-- Select Basic -->
               <div class="form-group">
-                {{ Form::label('turma', 'Turma *', array('class' => 'col-md-4 control-label')) }}
+                {{ Form::label('turma', 'Turma', array('class' => 'col-md-4 control-label required')) }}
                 <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                 <div class="col-md-4">
                   <select value='' id="turma_id" name="turma_id" class="form-control chosen-select" required>
@@ -86,7 +86,7 @@
               </div>
 
               <div class="form-group">
-                {{ Form::label('relato', 'Relato sobre a Ocorrência', array('class' => 'col-md-5 control-label')) }}
+                {{ Form::label('relato', 'Relato sobre a Ocorrência', array('class' => 'col-md-5 control-label required')) }}
                 <div class="col-md-12">
                   <input id="relato" name="relato" type="text" placeholder="insira as observações sobre a Ocorrência" class="form-control input-md">
                 </div>

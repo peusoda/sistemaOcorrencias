@@ -34,6 +34,10 @@
         background-color: rgb(194, 218, 189);
         font-weight: 800;
       }
+      .required:after {
+        content:" *"; 
+        color: red;
+      }
     </style>
 </head>
 <body id="page-top">

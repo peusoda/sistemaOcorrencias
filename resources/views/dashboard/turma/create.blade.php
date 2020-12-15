@@ -34,9 +34,9 @@ color:red;
                         @csrf
                         <!-- Text input-->
                         <div class="form-group">
-                          <label class="col-md-2 control-label" for="codigo">Código da Turma*</label>  
+                          <label class="col-md-2 control-label required" for="codigo">Código da Turma</label>  
                           <div class="col-md-4 ">
-                          <input id="codigo" name="codigo" class="form-control input-md @error('codigo') is-invalid @enderror" required="" type="text" value="{{ old('codigo') }}">
+                          <input id="codigo" name="codigo" class="form-control input-md required @error('codigo') is-invalid @enderror" required="" type="text" value="{{ old('codigo') }}">
                           @error('codigo')
                             <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
@@ -44,7 +44,7 @@ color:red;
                         </div>
                         <!-- Select Basic -->
                         <div class="form-group">
-                          <label class="col-md-2 control-label" for="curso">Curso*</label>
+                          <label class="col-md-2 control-label required" for="curso">Curso</label>
                           <div class="col-md-4">
                             <select required id="curso" name="curso" class="form-control @error('curso') is-invalid @enderror">
                               <option value="">Selecione uma opção</option>

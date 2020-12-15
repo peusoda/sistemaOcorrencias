@@ -31,7 +31,7 @@
                   <fieldset>
                     <img src="" id="img"><br>
                     <div class="form-group">
-                      {{ Form::label('imgAlu', 'Imagem do aluno *', array('class' => 'col-md-2')) }}
+                      {{ Form::label('imgAlu', 'Imagem do aluno', array('class' => 'col-md-2')) }}
                       <div class="col-md-6">
                         <input type="file" 
                         class="form-control"
@@ -45,7 +45,7 @@
                     </div>
                     <!-- Text input-->
                     <div class="form-group">
-                      {{ Form::label('nome', 'Nome do aluno*', array('class' => 'col-md-2 control-label')) }}
+                      {{ Form::label('nome', 'Nome do aluno', array('class' => 'col-md-2 control-label required')) }}
                       <div class="col-md-8 ">
                       <input id="nome" name="nome" class="form-control input-md" required="true" type="text">
                       </div>
@@ -53,7 +53,7 @@
 
                     <!-- Text input-->
                     <div class="form-group">
-                      {{ Form::label('data_nascimento', 'Data de Nascimento *', array('class' => 'col-md-5 control-label')) }}
+                      {{ Form::label('data_nascimento', 'Data de Nascimento', array('class' => 'col-md-5 control-label required')) }}
                       <div class="col-md-3">
                       <input id="data_nascimento" name="data_nascimento" placeholder="DD/MM/AAAA" class="form-control input-md" required="true" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
                       </div>
@@ -62,7 +62,7 @@
                     <!-- Multiple Radios (inline) -->
 
                     <div class="form-group">
-                      {{ Form::label('sexo', 'Sexo *', array('class' => 'col-md-5 control-label'))}}
+                      {{ Form::label('sexo', 'Sexo', array('class' => 'col-md-5 control-label required'))}}
                       <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                       <div class="col-md-4"> 
                         <select value='' id="sexo" name="sexo" class="form-control chosen-select" required>
@@ -75,21 +75,21 @@
                     </div>
 
                       <div class="form-group">
-                      {{ Form::label('naturalidade', 'Naturalidade *', array('class' => 'col-md-5 control-label')) }}
+                      {{ Form::label('naturalidade', 'Naturalidade', array('class' => 'col-md-5 control-label required')) }}
                         <div class="col-md-4">
                           <input id="naturalidade" name="naturalidade" type="text" class="form-control input-md" required="true">
                         </div>
                       </div>
 
                       <div class="form-group">
-                        {{ Form::label('municipio', 'Município *', array('class' => 'col-md-5 control-label'))}}
+                        {{ Form::label('municipio', 'Município', array('class' => 'col-md-5 control-label required'))}}
                         <div class="col-md-4">
                         <input id="municipio" name="municipio" type="text" class="form-control input-md" required="true">
                         </div>
                       </div>
 
                       <div class="form-group">
-                        {{ Form::label('transporte', 'Transporte *', array('class' => 'col-md-5 control-label'))}}
+                        {{ Form::label('transporte', 'Transporte', array('class' => 'col-md-5 control-label required'))}}
                         <div class="col-md-4"> 
                           <select value='' id="transporte" name="transporte" class="form-control chosen-select" required>
                             <option id="nada" name="nada" value="">Selecione uma opção</option>
@@ -103,14 +103,14 @@
                       </div>
 
                       <div class="form-group">
-                        {{ Form::label('cpf', 'CPF *', array('class' => 'col-md-2 control-label'))}}
+                        {{ Form::label('cpf', 'CPF', array('class' => 'col-md-2 control-label required'))}}
                         <div class="col-md-2">
                           <input id="cpf" name="cpf" placeholder="000.000.000-00" class="form-control input-md cpf" required="true" type="text" maxlength="14">
                         </div>
                       </div>
 
                       <div class="form-group">
-                        {{ Form::label('tipo_sanguineo', 'Tipo Sanguíneo *', array('class' => 'col-md-5 control-label'))}}
+                        {{ Form::label('tipo_sanguineo', 'Tipo Sanguíneo', array('class' => 'col-md-5 control-label required'))}}
                         <div class="col-md-1">
                           <input id="tipo_sanguineo" name="tipo_sanguineo" type="text" placeholder="O" class="form-control input-md" required="true">
                         </div>
@@ -147,7 +147,7 @@
 
                       <!-- Select Basic -->
                       <div class="form-group">
-                        {{ Form::label('turma', 'Turma *', array('class' => 'col-md-4 control-label')) }}
+                        {{ Form::label('turma', 'Turma', array('class' => 'col-md-4 control-label required')) }}
                         <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                         <div class="col-md-4"> 
                           <select value='' id="turma" name="turma" class="form-control chosen-select" required>
@@ -160,10 +160,10 @@
                       </div>
                       <!-- Prepended text-->
                       <div class="form-group">
-                        {{ Form::label('responsavel', 'Responsável *', array('class' => 'col-md-8 control-label')) }}
+                        {{ Form::label('responsavel', 'Responsável', array('class' => 'col-md-8 control-label')) }}
                         <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                         <div class="col-md-8"> 
-                          <select value='' id="responsavel" name="responsavel" class="form-control chosen-select" required>
+                          <select value='' id="responsavel" name="responsavel" class="form-control chosen-select">
                             <option id="nada" name="nada" value="">Selecione uma opção</option>
                             @foreach($responsaveis as $responsavel)
                               <option value="{{ $responsavel->id }}">{{ $responsavel->nome }}</option>
