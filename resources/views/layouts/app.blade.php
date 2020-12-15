@@ -38,6 +38,9 @@
         content:" *"; 
         color: red;
       }
+      label, .card-header{
+        font-weight: bold;
+      }
     </style>
 </head>
 <body id="page-top">

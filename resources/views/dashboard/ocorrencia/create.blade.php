@@ -77,7 +77,7 @@
                 <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                 <div class="col-md-4">
                   <select value='' id="turma_id" name="turma_id" class="form-control chosen-select" required>
-                    <option id="nada" name="nada" value="">Selecione uma turma</option>
+                    <option id="nada" name="nada" value="">Selecione uma opção</option>
                     @foreach($turmas as $turma)
                     <option value="{{ $turma->id }}">{{ $turma->codigo }}</option>
                     @endforeach
