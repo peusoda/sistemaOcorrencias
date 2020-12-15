@@ -34,35 +34,35 @@
                                 <div class="form-group">
                                     {{ Form::label('nome', 'Nome', array('class' => 'col-md-2 control-label required')) }}
                                     <div class="col-md-8 ">
-                                        <input id="nome" name="nome" placeholder="Nome" class="form-control input-md" required="true" type="text">
+                                        <input id="nome" name="nome" placeholder="Nome" class="form-control input-md" required type="text">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     {{ Form::label('cpf', 'CPF', array('class' => 'col-md-5 control-label required') )}}
                                     <div class="col-md-4">
-                                        <input id="cpf" name="cpf" type="text" placeholder="Digite o seu cpf" class="form-control input-md" required="true">
+                                        <input id="cpf" name="cpf" type="text" placeholder="Digite o seu cpf" class="form-control input-md" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     {{ Form::label('email', 'E-mail', array('class' => 'col-md-5 control-label required') )}}
                                     <div class="col-md-4">
-                                        <input id="email" name="email" type="email" placeholder="Digite o seu e-mail" class="form-control input-md" required="true">
+                                        <input id="email" name="email" type="email" placeholder="Digite o seu e-mail" class="form-control input-md" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     {{ Form::label('contato_1', 'Contato 1', array('class' => 'col-md-5 control-label required')) }}
                                     <div class="col-md-4">
-                                        <input id="contato_1" name="contato_1" type="text" placeholder="" class="form-control input-md" required="" true>
+                                        <input id="contato_1" name="contato_1" type="text" class="form-control input-md" required onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    {{ Form::label('contato_2', 'Contato 2', array('class' => 'col-md-5 control-label required')) }}
+                                    {{ Form::label('contato_2', 'Contato 2', array('class' => 'col-md-5 control-label')) }}
                                     <div class="col-md-4">
-                                        <input id="contato_2" name="contato_2" type="text" placeholder="" class="form-control input-md">
+                                        <input id="contato_2" name="contato_2" type="text" placeholder="" class="form-control input-md"  onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
                                     </div>
                                 </div>
                     </div>

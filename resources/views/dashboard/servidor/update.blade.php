@@ -70,7 +70,7 @@
                               {{ Form::label('contato', 'Contato', array('class' => 'col-md-5 control-label required')) }}
                             <!--<label class="col-md-5 control-label" for="#">Município<h11>*</h11></label>  -->
                               <div class="col-md-4">
-                                {{ Form::text('contato', 'old'('contato'), ['class' => 'form-control input-md', 'required']) }}
+                                {{ Form::text('contato', 'old'('contato'), ['class' => 'form-control input-md', 'required  onkeypress="mask(this, mphone);" onblur="mask(this, mphone);"']) }}
                               </div>
                               </div>
                             </div>
