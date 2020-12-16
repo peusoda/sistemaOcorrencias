@@ -74,6 +74,16 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
+          <a class="nav-link" href="{{ route('elogio.show') }}">
+            <i class="fas fa-fw fa-heart"></i>
+            <span>Meus elogios</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
         <a class="nav-link" href="{{ route('servidor.show') }}">
             <i class="fas fa-fw fa-chalkboard-teacher"></i>
             <span>Servidores</span></a>

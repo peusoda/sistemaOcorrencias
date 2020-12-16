@@ -16,7 +16,7 @@ class OcorrenciasController extends Controller
 {
     protected function show() {
         $ocorrencias = new Ocorrencia();
-        $ocorrencias = Ocorrencia::all();
+        $ocorrencias = Ocorrencia::all()->where('categoria','punitiva');
 
         return view('dashboard.ocorrencia.show')
             ->with('ocorrencias', $ocorrencias);
