@@ -42,6 +42,9 @@
                               {{ Form::label('nome', 'Nome', array('class' => 'col-md-2 control-label required')) }}
                               <div class="col-md-8 ">
                               {{ Form::text('nome', 'old'('nome'), ['class' => 'form-control input-md', 'required']) }}
+                              @error('nome')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
                               </div>
                             </div>
 
@@ -50,8 +53,11 @@
                               {{ Form::label('data_nascimento', 'Data de Nascimento', array('class' => 'col-md-5 control-label required')) }}
                               <div class="col-md-3">
                               {{ Form::date('data_nascimento', 'old'('data_nascimento'), ['class' => 'form-control input-md', 'required']) }}
+                              @error('data_nascimento')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
+                              </div>
                             </div>
-                          </div>
 
                             <!-- Multiple Radios (inline) -->
 
@@ -76,6 +82,9 @@
                                         <option id="sexo" name="sexo" value="m">Masculino</option>
                                       @endif
                                     </select>
+                                    @error('sexo')
+                                      <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -83,6 +92,9 @@
                               {{ Form::label('naturalidade', 'Naturalidade', array('class' => 'col-md-5 control-label required')) }}
                               <div class="col-md-4">
                               {{ Form::text('naturalidade', 'old'('naturalidade'), ['class' => 'form-control input-md', 'required']) }}
+                              @error('naturalidade')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
                               </div>
                               </div>
 
@@ -90,6 +102,9 @@
                               {{ Form::label('municipio', 'Município', array('class' => 'col-md-5 control-label required'))}}
                               <div class="col-md-4">
                               {{ Form::text('municipio', 'old'('municipio'), ['class' => 'form-control input-md', 'required']) }}
+                              @error('municipio')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
                               </div>
                               </div>
 
@@ -134,6 +149,9 @@
                                       @endif
 
                                     </select>
+                                    @error('transporte')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                               </div>
 
@@ -141,6 +159,9 @@
                               {{ Form::label('cpf', 'CPF', array('class' => 'col-md-2 control-label required'))}}
                               <div class="col-md-2">
                               {{ Form::text('cpf', 'old'('cpf'), ['class' => 'form-control input-md cpf', 'required']) }}
+                              @error('cpf')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
                               </div>
                             </div>
 
@@ -148,6 +169,9 @@
                               {{ Form::label('tipo_sanguineo', 'Tipo Sanguíneo', array('class' => 'col-md-5 control-label required'))}}
                               <div class="col-md-1">
                               {{ Form::text('tipo_sanguineo', 'old'('tipo_sanguineo'), ['class' => 'form-control input-md', 'required']) }}
+                              @error('tipo_sanguineo')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
                               </div>
                               </div>
 
@@ -196,6 +220,9 @@
                                     ])
                                 }}
                                 </div>
+                                @error('turma')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <!-- Prepended text-->
                             <div class="form-group">

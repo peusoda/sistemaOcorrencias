@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreUpdateAlunoRequest extends FormRequest
 {
@@ -23,16 +24,24 @@ class StoreUpdateAlunoRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->id;
         return [
-            'nome' => 'required|unique:alunos',
-            'data_nascimento' => 'required',
+            'nome' => "required|unique:alunos,nome,{$id},id",
+            'data_nascimento' => 'required|date',
             'sexo' => 'required',
             'naturalidade' => 'required',
             'municipio' => 'required',
             'transporte' => 'required',
-            'cpf' => 'required|unique:alunos|min:14',
+            'cpf' => [
+                'required',
+                'min:14',
+                Rule::unique('alunos')->ignore($id),
+            ],
+            //"required|unique:alunos,cpf,{$id},id|min:14",
             'tipo_sanguineo' => 'required',
-            'turma' => 'required'  
+            'turma' => [
+                Rule::unique('alunos')->ignore($id)
+            ]  
         ];
     }
 }

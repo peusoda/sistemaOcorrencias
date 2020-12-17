@@ -91,7 +91,7 @@ class AlunosController extends Controller
             ->with('responsaveis', $responsaveis);
     }
 
-    protected function updateConf(Request $request) {
+    protected function updateConf(StoreUpdateAlunoRequest $request) {
         $aluno = new Aluno();
         $aluno = Aluno::find($request->input('id'));
         $aluno->nome = $request->input('nome');

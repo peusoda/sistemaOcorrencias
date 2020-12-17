@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreUpdateTurmaRequest extends FormRequest
 {
@@ -23,8 +24,12 @@ class StoreUpdateTurmaRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->segment('2');
         return [
-            'codigo' => 'required|unique:turmas',
+            'codigo' => [
+                'required',
+                Rule::unique('turmas')->ignore($id),    
+            ],
             'curso' => 'required'
         ];
     }
