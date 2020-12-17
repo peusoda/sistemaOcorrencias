@@ -41,7 +41,7 @@
                                 <div class="form-group">
                                     {{ Form::label('cpf', 'CPF', array('class' => 'col-md-5 control-label required') )}}
                                     <div class="col-md-4">
-                                        <input id="cpf" name="cpf" type="text" placeholder="Digite o seu cpf" class="form-control input-md" required>
+                                        <input id="cpf" name="cpf" type="text" placeholder="Digite o seu cpf" class="form-control input-md cpf" required maxlength="14" minlength="14">
                                     </div>
                                 </div>
 
