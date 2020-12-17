@@ -10,12 +10,20 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
+            @if(Auth::user()->tipo == 'responsavel')
+                <div class="card-header"><strong>Dados dos Alunos sob sua responsabilidade</strong>
+                <button type="submit" class="btn btn-primary btnp">
+                        <!-- Redirecionando para a rota de cadastro -->
+                        <div class="btn"> <a href="{{ route('aluno.perfil') }}" id="btn">Informes do Aluno </a></div>
+                    </button>
+            @endif
+            <div>
+            @if(Auth::user()->tipo != 'responsavel')
                 <div class="card-header"><strong>Alunos cadastrados no sistema</strong>
                     <button type="submit" class="btn btn-primary btnp">
                         <!-- Redirecionando para a rota de cadastro -->
                         <div class="btn"> <a href="{{ route('aluno.create') }}" id="btn">Cadastrar </a></div>
                     </button>
-                    <div>
                         <form action="{{ route('aluno.filter') }}" method="post">
                             @csrf
                             <select 
@@ -35,7 +43,9 @@
                             class="btn-outline-success"
                             type="submit">Filtrar</button>
                         </form>
+                      
                     </div>
+                    @endif
                 </div>
                 @include('flash::message')
                 <div class="card-body">
@@ -48,8 +58,13 @@
                                 <th>Turma</th>
                                 <th>Município</th>
                                 <th>Responsável</th>
+                                @if(Auth::user()->tipo == 'responsavel')
+                                <th>Data Nascimento</th>
+                                <th>CPF</th>
+                                @else
                                 <th>Atualizar</th>
                                 <th>Excluir</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -59,13 +74,20 @@
                                 <td>{{ $aluno->turma->codigo }}</td>
                                 <td>{{ $aluno->municipio }}</td>
                                 <td>{{ $aluno->responsavel->nome }}</td>
+                                @if(Auth::user()->tipo == 'responsavel')
+                                <td>{{ $aluno->data_nascimento }}</td>
+                                <td>{{ $aluno->cpf }}</td>
+                                @endif
+                                @if(Auth::user()->tipo != 'responsavel')
                                 <td><a href="{{ route('aluno.update', $aluno->id) }}" class="btn btn-info btn-sm"> Atualizar
                                     </a>&ensp;</td>
                                     <td><a class="btn btn-danger btn-sm delete-confirm"
                                         href="{{ route('aluno.delete', $aluno->id) }}">
                                         Excluir </a></td>
-                            </tr>
+                                </tr> 
+                                @endif
                             @endforeach
+
 
                         </tbody>
                     </table>

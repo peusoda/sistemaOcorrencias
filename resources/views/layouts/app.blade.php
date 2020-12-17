@@ -61,6 +61,7 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
+        @if(Auth::user()->tipo != 'responsavel')
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
@@ -101,7 +102,7 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
-
+        
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
         <a class="nav-link" href="{{ route('responsavel.show') }}">
@@ -138,8 +139,15 @@
         </div><br>
 
         <hr class="sidebar-divider my-0">
-
-
+        
+        @endif
+        @if(Auth::user()->tipo == 'responsavel')
+        <li class="nav-item active">
+        <a class="nav-link" href="{{ route('aluno.show') }}">
+            <i class="fas fa-fw fa-book-reader"></i>
+            <span>Aluno</span></a>
+        </li>
+        @endif
         <li class="nav-item dropdown no-arrow active">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-user"></i>
@@ -179,14 +187,14 @@ document.getElementById('logout-form').submit();">
 
         </ul>
         
-
+      
  
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-
-
+        
+      
 
 
   <!-- End of Topbar -->
