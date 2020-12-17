@@ -40,7 +40,20 @@
           <div class="portlet-body table-responsive">
             {{ Form::open(['route' => 'ocorrencia.new','id' => 'form', 'method' => 'POST', 'files' => true, 'enctype' => 'multipart/form-data']) }}
             <fieldset>
-
+              <img src="" id="img"><br>
+                    <div class="form-group">
+                      {{ Form::label('imgOco', 'Imagem da ocorrencia', array('class' => 'col-md-2')) }}
+                      <div class="col-md-6">
+                        <input type="file" 
+                        class="form-control"
+                        name="imgOco"
+                        id="imgOco"
+                        onchange=" verificaExtensao(this); preview(event)"
+                        accept="image/*"
+                        capture="environment"
+                        >
+                      </div>
+                    </div>
              <!-- Select Basic -->
              <div class="form-group">
                 {{ Form::label('motivo', 'Motivo da Ocorrência', array('class' => 'col-md-12 control-label required')) }}
@@ -182,4 +195,29 @@ $(document).ready(function () {
     });
     
 </script>
+{{-- Carregar a img ao ser adicionada --}}
+    <script>
+      function preview(event) {
+        var input = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function() {
+          var result = reader.result;
+          var img = document.getElementById('img');
+            img.src = result;
+        }
+        reader.readAsDataURL (input);
+      }
+    </script>
+    {{-- Verificar extensão da imagem --}}
+    <script>
+      function verificaExtensao($input) {
+        var extPermitidas = ['jpg', 'png', 'jpeg'];
+        var extArquivo = $input.value.split('.').pop();
+
+        if(typeof extPermitidas.find(function(ext){ return extArquivo == ext; }) == 'undefined') {
+            alert('Extensão "' + extArquivo + '" não permitida!\n Adicione um arquivo com a extensões: ".png", "jpeg" ou ".jpg"');
+            document.getElementById("imgProd").value = ''
+        }
+      }
+    </script>
 @endpush
