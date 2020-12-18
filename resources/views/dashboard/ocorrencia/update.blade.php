@@ -17,6 +17,12 @@
     height: 50%;
   }
 
+  img {
+    max-width:70px;
+    max-height:70px;
+    width: auto;
+    height: auto;
+}
   table.dataTable tr th.select-checkbox.selected::after {
     content: "✔";
     margin-top: -11px;
@@ -112,6 +118,7 @@
                 <thead>
                   <tr>
                     <th style="width: 10px;"><input type="checkbox" id="checkTodos" name="checkTodos"></th>
+                    <th></th>
                     <th>Nome</th>
                     <th>Turma</th>
                   </tr>
@@ -120,6 +127,7 @@
                   @foreach($alunos as $aluno)
                   <tr class="active" value="{{ $aluno->id }}">
                     <td style="width: 100x;">&nbsp;&nbsp;<input type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}" @foreach($aluno->ocorrenciaAluno as $oc)@if($oc->ocorrencia_id == $ocorrencia->id) checked @endif @endforeach></td>
+                    <td style="width: 100x;"><img src="{{ asset('storage/alunos/'.$aluno->id.'/'.$aluno->image) }}" id="img" alt=""></td>
                     <td>{{ $aluno->nome }}</td>
                     <td>{{ $aluno->turma->codigo }}</td>
                   </tr>
