@@ -32,7 +32,7 @@
                             <tbody>
                                 @foreach($elogios as $elogio)
                                 <tr class="active">
-                                    <td>{{ @$elogio->turma->codigo }}</td>
+                                    <td style="text-transform:uppercase">{{ @$elogio->turma->codigo . ' - ' . $elogio->turma->curso }}</td>
                                     <td>{{ $elogio->relato }}</td>
                                     <td><a href="{{ route('elogio.update', $elogio->id) }}" class="btn btn btn-warning btn-sm"> Atualizar
                                         </a>&ensp;</td>

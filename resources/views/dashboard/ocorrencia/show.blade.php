@@ -32,7 +32,7 @@
                             <tbody>
                                 @foreach($ocorrencias as $ocorrencia)
                                 <tr class="active">
-                                    <td>{{ @$ocorrencia->turma->codigo }}</td>
+                                    <td style="text-transform:uppercase">{{ @$ocorrencia->turma->codigo . ' - ' . $ocorrencia->turma->curso }}</td>
                                     <td>{{ $ocorrencia->relato }}</td>
                                     <td><a href="{{ route('ocorrencia.update', $ocorrencia->id) }}" class="btn btn-warning btn-sm"> Atualizar
                                         </a>&ensp;</td>

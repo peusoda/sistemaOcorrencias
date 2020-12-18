@@ -71,7 +71,7 @@
                         @foreach($alunos as $aluno)
                             <tr class="active">
                             <td><a href="{{ route('aluno.perfil', $aluno->id) }}">{{ $aluno->nome }}</a></td>
-                                <td>{{ $aluno->turma->codigo }}</td>
+                                <td style="text-transform:uppercase">{{ $aluno->turma->codigo . ' - ' . $aluno->turma->curso  }}</td>
                                 <td>{{ $aluno->municipio }}</td>
                                 <td>{{ $aluno->responsavel->nome }}</td>
                                 @if(Auth::user()->tipo == 'responsavel')
