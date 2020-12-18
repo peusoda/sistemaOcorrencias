@@ -121,6 +121,7 @@
                       <tr>
                         <th style="width: 100px;"></th>
                         <th>Descrição</th>
+                        <th>Gravidade</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -131,8 +132,7 @@
                       <tr class="active" value="{{ $oc->ocorrencia->id }}">
                         <td style="width: 100x;">{{$i}}</td>
                         <td>{{ $oc->ocorrencia->relato }}</td>
-                        <!-- <td>{{ $oc->ocorrencia->tipo->motivo }}</td> -->
-
+                        <td style="text-transform:capitalize">{{ $oc->ocorrencia->tipo->motivo->nivel}}</td>
                       </tr>
                       @endif
                       @endforeach
@@ -152,7 +152,6 @@
                       <tr>
                         <th style="width: 100px;"></th>
                         <th>Descrição</th>
-
                       </tr>
                     </thead>
                     <tbody>
@@ -163,8 +162,6 @@
                       <tr class="active" value="{{ $oc->ocorrencia->id }}">
                         <td style="width: 100x;">{{$i}}</td>
                         <td>{{ $oc->ocorrencia->relato }}</td>
-                        <!-- <td>{{ $oc->ocorrencia->tipo->motivo }}</td> -->
-
                       </tr>
                       @endif
                       @endforeach

@@ -25,6 +25,7 @@
                                 <tr>
                                     <th>Turma</th>
                                     <th>Relato</th>
+                                    <th>Gravidade</th>
                                     <th>Atualizar</th>
                                     <th>Excluir</th>
                                 </tr>
@@ -34,6 +35,7 @@
                                 <tr class="active">
                                     <td style="text-transform:uppercase">{{ @$ocorrencia->turma->codigo . ' - ' . $ocorrencia->turma->curso }}</td>
                                     <td>{{ $ocorrencia->relato }}</td>
+                                    <td style="text-transform:capitalize">{{ $ocorrencia->tipo->motivo->nivel}}</td>
                                     <td><a href="{{ route('ocorrencia.update', $ocorrencia->id) }}" class="btn btn-warning btn-sm"> Atualizar
                                         </a>&ensp;</td>
                                     <td><a class="btn btn-danger btn-sm delete-confirm" href="{{ route('ocorrencia.delete', $ocorrencia->id) }}">
