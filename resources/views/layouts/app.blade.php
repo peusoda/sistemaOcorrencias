@@ -35,19 +35,22 @@
         background-color: rgb(194, 218, 189);
         font-weight: 800;
       }
-<<<<<<< HEAD
       #sidebarToggle{
         position: absolute;
         float: left;
         z-index:2;
-=======
+      }
+
       .required:after {
         content:" *"; 
         color: red;
       }
       label, .card-header{
         font-weight: bold;
->>>>>>> 5a83b175e1efdc94f869db27499eb7264c6550a0
+      }
+
+      .dataTables_wrapper {
+        min-width: 500px;
       }
     </style>
 </head>
