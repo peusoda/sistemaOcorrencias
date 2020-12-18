@@ -28,8 +28,8 @@ class OcorrenciasController extends Controller
         $turmas = Turma::all();
         $alunos = new Aluno();
         $alunos = Aluno::all();
-        $tipos = new TipoOcorrencia();
-        $tipos = TipoOcorrencia::all();
+        $tipos =  new TipoOcorrencia();
+        $tipos =  TipoOcorrencia::all();
         
         return view('dashboard.ocorrencia.create')
         ->with('turmas', $turmas)
