@@ -31,7 +31,7 @@
                   <fieldset>
                     <img src="" id="img"><br>
                     <div class="form-group">
-                      {{ Form::label('imgAlu', 'Imagem do aluno *', array('class' => 'col-md-2')) }}
+                      {{ Form::label('imgAlu', 'Imagem do aluno', array('class' => 'col-md-2')) }}
                       <div class="col-md-6">
                         <input type="file" 
                         class="form-control"
@@ -45,53 +45,68 @@
                     </div>
                     <!-- Text input-->
                     <div class="form-group">
-                      {{ Form::label('nome', 'Nome do aluno*', array('class' => 'col-md-2 control-label')) }}
+                      {{ Form::label('nome', 'Nome do aluno', array('class' => 'col-md-2 control-label required')) }}
                       <div class="col-md-8 ">
-                      <input id="nome" name="nome" class="form-control input-md" required="true" type="text">
+                      <input id="nome" name="nome" class="form-control input-md @error('nome') is-invalid @enderror" required type="text">
+                      @error('nome')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
                       </div>
                     </div>
 
                     <!-- Text input-->
                     <div class="form-group">
-                      {{ Form::label('data_nascimento', 'Data de Nascimento *', array('class' => 'col-md-5 control-label')) }}
+                      {{ Form::label('data_nascimento', 'Data de Nascimento', array('class' => 'col-md-5 control-label required')) }}
                       <div class="col-md-3">
-                      <input id="data_nascimento" name="data_nascimento" placeholder="DD/MM/AAAA" class="form-control input-md" required="true" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+                      <input id="data_nascimento" name="data_nascimento" placeholder="DD/MM/AAAA" class="form-control input-md @error('data_nascimento') is-invalid @enderror" required="true" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+                      @error('data_nascimento')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
                       </div>
                     </div>
 
                     <!-- Multiple Radios (inline) -->
 
                     <div class="form-group">
-                      {{ Form::label('sexo', 'Sexo *', array('class' => 'col-md-5 control-label'))}}
+                      {{ Form::label('sexo', 'Sexo', array('class' => 'col-md-5 control-label required'))}}
                       <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                       <div class="col-md-4"> 
-                        <select value='' id="sexo" name="sexo" class="form-control chosen-select" required>
+                        <select value='' id="sexo" name="sexo" class="form-control chosen-select @error('sexo') is-invalid @enderror" required>
                           <option id="nada" name="nada" value="">Selecione uma opção</option>
                           <option id="sexo" name="sexo" value="m">Masculino</option>
                           <option id="sexo" name="sexo" value="f">Feminino</option>
                           <option id="sexo" name="sexo" value="s">Não declarado</option>
                         </select>
+                        @error('sexo')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                     </div>
 
                       <div class="form-group">
-                      {{ Form::label('naturalidade', 'Naturalidade *', array('class' => 'col-md-5 control-label')) }}
+                      {{ Form::label('naturalidade', 'Naturalidade', array('class' => 'col-md-5 control-label required')) }}
                         <div class="col-md-4">
-                          <input id="naturalidade" name="naturalidade" type="text" class="form-control input-md" required="true">
+                          <input id="naturalidade" name="naturalidade" type="text" class="form-control input-md @error('naturalidade') is-invalid @enderror" required="true">
+                          @error('naturalidade')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                         </div>
                       </div>
 
                       <div class="form-group">
-                        {{ Form::label('municipio', 'Município *', array('class' => 'col-md-5 control-label'))}}
+                        {{ Form::label('municipio', 'Município', array('class' => 'col-md-5 control-label required'))}}
                         <div class="col-md-4">
-                        <input id="municipio" name="municipio" type="text" class="form-control input-md" required="true">
+                        <input id="municipio" name="municipio" type="text" class="form-control input-md @error('municipio') is-invalid @enderror" required="true">
+                        @error('municipio')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         </div>
                       </div>
 
                       <div class="form-group">
-                        {{ Form::label('transporte', 'Transporte *', array('class' => 'col-md-5 control-label'))}}
+                        {{ Form::label('transporte', 'Transporte', array('class' => 'col-md-5 control-label required'))}}
                         <div class="col-md-4"> 
-                          <select value='' id="transporte" name="transporte" class="form-control chosen-select" required>
+                          <select value='' id="transporte" name="transporte" class="form-control chosen-select @error('transporte') is-invalid @enderror" required>
                             <option id="nada" name="nada" value="">Selecione uma opção</option>
                             <option id="transporte" name="transporte" value="bicicleta">Bicileta</option>
                             <option id="transporte" name="transporte" value="pe">Caminhada</option>
@@ -99,20 +114,29 @@
                             <option id="transporte" name="transporte" value="onibus">Ônibus</option>
                             <option id="transporte" name="transporte" value="outros">Outros</option>
                           </select>
+                          @error('transporte')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                         </div>
                       </div>
 
                       <div class="form-group">
-                        {{ Form::label('cpf', 'CPF *', array('class' => 'col-md-2 control-label'))}}
+                        {{ Form::label('cpf', 'CPF', array('class' => 'col-md-2 control-label required'))}}
                         <div class="col-md-2">
-                          <input id="cpf" name="cpf" placeholder="000.000.000-00" class="form-control input-md cpf" required="true" type="text" maxlength="14">
+                          <input id="cpf" name="cpf" placeholder="000.000.000-00" class="form-control input-md cpf @error('cpf') is-invalid @enderror" required="true" type="text" maxlength="14">
+                          @error('cpf')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                         </div>
                       </div>
 
                       <div class="form-group">
-                        {{ Form::label('tipo_sanguineo', 'Tipo Sanguíneo *', array('class' => 'col-md-5 control-label'))}}
+                        {{ Form::label('tipo_sanguineo', 'Tipo Sanguíneo', array('class' => 'col-md-5 control-label required'))}}
                         <div class="col-md-1">
-                          <input id="tipo_sanguineo" name="tipo_sanguineo" type="text" placeholder="O" class="form-control input-md" required="true">
+                          <input id="tipo_sanguineo" name="tipo_sanguineo" type="text" placeholder="Ex.: O+" class="form-control input-md @error('tipo_sanguineo') is-invalid @enderror" required="true">
+                          @error('tipo_sanguineo')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                         </div>
                       </div>
 
@@ -147,23 +171,26 @@
 
                       <!-- Select Basic -->
                       <div class="form-group">
-                        {{ Form::label('turma', 'Turma *', array('class' => 'col-md-4 control-label')) }}
+                        {{ Form::label('turma', 'Turma', array('class' => 'col-md-4 control-label required')) }}
                         <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                         <div class="col-md-4"> 
-                          <select value='' id="turma" name="turma" class="form-control chosen-select" required>
+                          <select value='' id="turma" name="turma" class="form-control chosen-select @error('turma') is-invalid @enderror" required>
                             <option id="nada" name="nada" value="">Selecione uma opção</option>
                             @foreach($turmas as $turma)
                               <option value="{{ $turma->id }}">{{ $turma->codigo }}</option>
                             @endforeach
                           </select>
+                          @error('turma')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                         </div>
                       </div>
                       <!-- Prepended text-->
                       <div class="form-group">
-                        {{ Form::label('responsavel', 'Responsável *', array('class' => 'col-md-8 control-label')) }}
+                        {{ Form::label('responsavel', 'Responsável', array('class' => 'col-md-8 control-label')) }}
                         <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                         <div class="col-md-8"> 
-                          <select value='' id="responsavel" name="responsavel" class="form-control chosen-select" required>
+                          <select value='' id="responsavel" name="responsavel" class="form-control chosen-select">
                             <option id="nada" name="nada" value="">Selecione uma opção</option>
                             @foreach($responsaveis as $responsavel)
                               <option value="{{ $responsavel->id }}">{{ $responsavel->nome }}</option>

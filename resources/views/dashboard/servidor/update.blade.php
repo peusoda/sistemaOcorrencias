@@ -31,7 +31,7 @@
                             <!-- Text input-->
                             {{-- Nome do Servidor --}}
                             <div class="form-group">
-                            {{ Form::label('nome', 'Nome *', array('class' => 'col-md-2 control-label')) }}
+                            {{ Form::label('nome', 'Nome', array('class' => 'col-md-2 control-label required')) }}
                               <!--<label class="col-md-2 control-label" for="Nome">Nome<h11>*</h11></label>  -->
                               <div class="col-md-8 ">
                                 {{ Form::text('nome', 'old'('nome'), ['class' => 'form-control input-md', 'required']) }}
@@ -40,14 +40,14 @@
 
                             <!-- Text input-->
                             <div class="form-group">
-                            {{ Form::label('siape', 'Siape *', array('class' => 'col-md-5 control-label'))}}
+                            {{ Form::label('siape', 'Siape', array('class' => 'col-md-5 control-label required'))}}
                               <!--<label class="col-md-5 control-label" >Siape<h11>*</h11></label>  -->
                               <div class="col-md-2">
                                   {{ Form::text('siape', 'old'('siape'), ['class' => 'form-control input-md', 'required']) }}
                             </div>
                         </div>
                             <div class="form-group">
-                                {{ Form::label('funcao', 'Função *', array('class' => 'col-md-5 control-label'))}}
+                                {{ Form::label('funcao', 'Função', array('class' => 'col-md-5 control-label required'))}}
                                 <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                                 <div class="col-md-4"> 
                                     <select value='' id="funca" name="funcao" class="form-control chosen-select" required>
@@ -59,7 +59,7 @@
                             </div>
 
                             <div class="form-group">
-                            {{ Form::label('email', 'E-mail *', array('class' => 'col-md-5 control-label') )}}
+                            {{ Form::label('email', 'E-mail', array('class' => 'col-md-5 control-label required') )}}
                             <!--<label class="col-md-5 control-label" for="profissao">Naturalidade<h11>*</h11></label>  -->
                               <div class="col-md-4">
                                 {{ Form::email('email', 'old'('email'), ['class' => 'form-control input-md', 'required']) }}
@@ -67,10 +67,10 @@
                               </div>
 
                               <div class="form-group">
-                              {{ Form::label('contato', 'Contato *', array('class' => 'col-md-5 control-label')) }}
+                              {{ Form::label('contato', 'Contato', array('class' => 'col-md-5 control-label required')) }}
                             <!--<label class="col-md-5 control-label" for="#">Município<h11>*</h11></label>  -->
                               <div class="col-md-4">
-                                {{ Form::text('contato', 'old'('contato'), ['class' => 'form-control input-md', 'required']) }}
+                                {{ Form::text('contato', 'old'('contato'), ['class' => 'form-control input-md', 'required  onkeypress="mask(this, mphone);" onblur="mask(this, mphone);"']) }}
                               </div>
                               </div>
                             </div>

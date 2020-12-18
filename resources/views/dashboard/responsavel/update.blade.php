@@ -31,37 +31,37 @@
                 <!-- Text input-->
                 {{-- Nome do Responsavel --}}
                 <div class="form-group">
-                  {{ Form::label('nome', 'Nome *', array('class' => 'col-md-2 control-label')) }}
+                  {{ Form::label('nome', 'Nome', array('class' => 'col-md-2 control-label required')) }}
                   <div class="col-md-8 ">
                     {{ Form::text('nome', 'old'('nome'), ['class' => 'form-control input-md', 'required']) }}
                   </div>
                 </div>
 
                 <div class="form-group">
-                  {{ Form::label('cpf', 'Cpf *', array('class' => 'col-md-5 control-label') )}}
+                  {{ Form::label('cpf', 'Cpf', array('class' => 'col-md-5 control-label required') )}}
                   <div class="col-md-4">
-                    {{ Form::text('cpf', 'old'('cpf'), ['class' => 'form-control input-md', 'required']) }}
+                    {{ Form::text('cpf', 'old'('cpf'), ['class' => 'form-control input-md cpf', 'required maxlength="14" minlength="14"']) }}
                   </div>
                 </div>
 
                 <div class="form-group">
-                  {{ Form::label('email', 'E-mail *', array('class' => 'col-md-5 control-label') )}}
+                  {{ Form::label('email', 'E-mail', array('class' => 'col-md-5 control-label required') )}}
                   <div class="col-md-4">
                     {{ Form::email('email', 'old'('email'), ['class' => 'form-control input-md', 'required']) }}
                   </div>
                 </div>
 
                 <div class="form-group">
-                  {{ Form::label('contato_1', 'Contato *', array('class' => 'col-md-5 control-label')) }}
+                  {{ Form::label('contato_1', 'Contato', array('class' => 'col-md-5 control-label required')) }}
                   <div class="col-md-4">
-                    {{ Form::text('contato_1', 'old'('contato_1'), ['class' => 'form-control input-md', 'required']) }}
+                    {{ Form::text('contato_1', 'old'('contato_1'), ['class' => 'form-control input-md', 'required onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" minlength="14"']) }}
                   </div>
                 </div>
 
                 <div class="form-group">
-                  {{ Form::label('contato_2', 'Contato *', array('class' => 'col-md-5 control-label')) }}
+                  {{ Form::label('contato_2', 'Contato', array('class' => 'col-md-5 control-label required')) }}
                   <div class="col-md-4">
-                    {{ Form::text('contato_2', 'old'('contato_2'), ['class' => 'form-control input-md', 'required']) }}
+                    {{ Form::text('contato_2', 'old'('contato_2'), ['class' => 'form-control input-md', 'required onkeypress="mask(this, mphone);" onblur="mask(this, mphone);"']) }}
                   </div>
                 </div>
           </div>

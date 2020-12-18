@@ -35,10 +35,19 @@
         background-color: rgb(194, 218, 189);
         font-weight: 800;
       }
+<<<<<<< HEAD
       #sidebarToggle{
         position: absolute;
         float: left;
         z-index:2;
+=======
+      .required:after {
+        content:" *"; 
+        color: red;
+      }
+      label, .card-header{
+        font-weight: bold;
+>>>>>>> 5a83b175e1efdc94f869db27499eb7264c6550a0
       }
     </style>
 </head>
@@ -65,12 +74,23 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
+        @if(Auth::user()->tipo != 'responsavel')
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
         <a class="nav-link" href="{{ route('ocorrencia.show') }}">
             <i class="fas fa-fw fa-pen-alt"></i>
             <span>Minhas Ocorrências</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ route('elogio.show') }}">
+            <i class="fas fa-fw fa-heart"></i>
+            <span>Meus elogios</span></a>
         </li>
 
         <!-- Divider -->
@@ -95,7 +115,7 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
-
+        
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
         <a class="nav-link" href="{{ route('responsavel.show') }}">
@@ -132,8 +152,15 @@
         </div><br>
 
         <hr class="sidebar-divider my-0">
-
-
+        
+        @endif
+        @if(Auth::user()->tipo == 'responsavel')
+        <li class="nav-item active">
+        <a class="nav-link" href="{{ route('aluno.show') }}">
+            <i class="fas fa-fw fa-book-reader"></i>
+            <span>Aluno</span></a>
+        </li>
+        @endif
         <li class="nav-item dropdown no-arrow active">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-user"></i>
@@ -159,10 +186,13 @@
             Minhas Ocorrências
           </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-            Sair
+          <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+document.getElementById('logout-form').submit();">
+                {{ __('Sair') }}
           </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </div>
 
       </li>
@@ -170,14 +200,14 @@
 
     </div>
         
-
+      
  
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-
-
+        
+      
 
 
   <!-- End of Topbar -->
@@ -256,6 +286,32 @@
                 reverse: true
             });
         });
+    </script>
+    {{-- Máscara para número de telefone--}}
+    <script>
+      function mask(o, f) {
+        setTimeout(function() {
+          var v = mphone(o.value);
+          if (v != o.value) {
+            o.value = v;
+          }
+        }, 1);
+      }
+
+      function mphone(v) {
+        var r = v.replace(/\D/g, "");
+        r = r.replace(/^0/, "");
+        if (r.length > 10) {
+          r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+        } else if (r.length > 5) {
+          r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+        } else if (r.length > 2) {
+          r = r.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+        } else {
+          r = r.replace(/^(\d*)/, "($1");
+        }
+        return r;
+      }
     </script>
 </body>
            

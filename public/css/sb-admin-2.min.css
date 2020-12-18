@@ -1519,7 +1519,7 @@
   .table {
     width: 100%;
     margin-bottom: 1rem;
-    color: #858796;
+    color: #000000;
   }
   
   .table th,
@@ -2103,6 +2103,7 @@
   .was-validated .form-control:valid, .form-control.is-valid {
     border-color: #1cc88a;
     padding-right: calc(1.5em + 0.75rem);
+    
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%231cc88a' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right calc(0.375em + 0.1875rem) center;
@@ -10895,9 +10896,9 @@
       height: calc(20rem - 43px) !important;
     }
   }
-  
+
   .bg-login-image {
-    background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+    
     background-position: center;
     background-size: cover;
   }

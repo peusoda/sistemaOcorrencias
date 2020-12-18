@@ -35,50 +35,17 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header">Cadastro de Ocorrência</div>
+        <div class="card-header">Cadastro de Elogio</div>
         <div class="card-body">
           <div class="portlet-body table-responsive">
-            {{ Form::open(['route' => 'ocorrencia.new','id' => 'form', 'method' => 'POST', 'files' => true, 'enctype' => 'multipart/form-data']) }}
+            {{ Form::open(['route' => 'elogio.new','id' => 'form', 'method' => 'POST', 'files' => true, 'enctype' => 'multipart/form-data']) }}
             <fieldset>
-              <img src="" id="img"><br>
-                    <div class="form-group">
-                      {{ Form::label('imgOco', 'Imagem da ocorrencia', array('class' => 'col-md-2')) }}
-                      <div class="col-md-6">
-                        <input type="file" 
-                        class="form-control"
-                        name="imgOco"
-                        id="imgOco"
-                        onchange=" verificaExtensao(this); preview(event)"
-                        accept="image/*"
-                        capture="environment"
-                        >
-                      </div>
-                    </div>
+
              <!-- Select Basic -->
-             <div class="form-group">
-                {{ Form::label('motivo', 'Motivo da Ocorrência', array('class' => 'col-md-12 control-label required')) }}
-                <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
-                <div class="col-md-12">
-                  <select value='' id="tipo_id" name="tipo_id"  class="form-control chosen-select" required>
-                    <option id="nada" name="nada" value="">Selecione o motivo</option>
-                    @foreach($tipos as $motivo)
-                    <option value="{{ $motivo->id }}">{{ $motivo->descricao }}</option>
-                    @endforeach
-                  </select>
-                </div>
-              </div>
 
               <!-- Text input-->
               <div class="form-group">
-                {{ Form::label('disciplina', 'Disciplina', array('class' => 'col-md-2 control-label required')) }}
-                <div class="col-md-8 ">
-                  <input id="disciplina" name="disciplina" placeholder="insira a disciplina da ocorrência" class="form-control input-md" required="true" type="text">
-                </div>
-              </div>
-
-              <!-- Text input-->
-              <div class="form-group">
-                {{ Form::label('data_ocorrencia', 'Data da Ocorrência', array('class' => 'col-md-3 control-label required')) }}
+                {{ Form::label('data_ocorrencia', 'Data do Elogio', array('class' => 'col-md-3 control-label required')) }}
                 <div class="col-md-3">
                   <input id="data_ocorrencia" name="data_ocorrencia" placeholder="DD/MM/AAAA" class="form-control input-md" required="true" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
                 </div>
@@ -99,7 +66,7 @@
               </div>
 
               <div class="form-group">
-                {{ Form::label('relato', 'Relato sobre a Ocorrência', array('class' => 'col-md-5 control-label required')) }}
+                {{ Form::label('relato', 'Descrição do Elogio', array('class' => 'col-md-5 control-label required')) }}
                 <div class="col-md-12">
                   <input id="relato" name="relato" type="text" placeholder="insira as observações sobre a Ocorrência" class="form-control input-md">
                 </div>
@@ -126,7 +93,7 @@
               <!-- Button (Double) -->
             </fieldset>
             <div class="col-md-12">
-              {{ Form::submit('Cadastrar Ocorrência', ['class' => 'btn btn-success btn-block btn-lg']) }}
+              {{ Form::submit('Cadastrar Elogio', ['class' => 'btn btn-success btn-block btn-lg']) }}
             </div>            
             {{ Form::close() }}
           </div>
@@ -195,29 +162,4 @@ $(document).ready(function () {
     });
     
 </script>
-{{-- Carregar a img ao ser adicionada --}}
-    <script>
-      function preview(event) {
-        var input = event.target.files[0];
-        var reader = new FileReader();
-        reader.onload = function() {
-          var result = reader.result;
-          var img = document.getElementById('img');
-            img.src = result;
-        }
-        reader.readAsDataURL (input);
-      }
-    </script>
-    {{-- Verificar extensão da imagem --}}
-    <script>
-      function verificaExtensao($input) {
-        var extPermitidas = ['jpg', 'png', 'jpeg'];
-        var extArquivo = $input.value.split('.').pop();
-
-        if(typeof extPermitidas.find(function(ext){ return extArquivo == ext; }) == 'undefined') {
-            alert('Extensão "' + extArquivo + '" não permitida!\n Adicione um arquivo com a extensões: ".png", "jpeg" ou ".jpg"');
-            document.getElementById("imgProd").value = ''
-        }
-      }
-    </script>
 @endpush

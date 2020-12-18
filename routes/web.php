@@ -173,3 +173,37 @@ Route::group(['prefix' => 'ocorrencia'], function(){
     ]);
 
 });
+
+//Grupo de rotas de acesso para o CRUD Elogios
+Route::group(['prefix' => 'elogio'], function(){
+    //Rota para abrir a dataTables com informações dos elogios
+    Route::get('/show', [
+        'as' => 'elogio.show',
+        'uses' => 'ElogiosController@show'
+    ]);
+    //Rota para cadastro de elogio.
+    Route::get('/create', [
+        'as' => 'elogio.create',
+        'uses' => 'ElogiosController@create'
+    ]);
+    //Rota para persistência dos dados vindo do Form.
+    Route::post('/create/new', [
+        'as' => 'elogio.new',
+        'uses' => 'ElogiosController@store'
+    ]);
+    //Rotas para atualizar dados elogio
+    Route::get('/update/{id}', [
+        'as' => 'elogio.update',
+        'uses' => 'ElogiosController@update'
+    ]);
+    Route::put('/update/updateConf', [
+        'as' => 'elogio.updateConf',
+        'uses' => 'ElogiosController@updateConf'
+    ]);
+    //Rota para deletar elogio
+    Route::get('/delete/{id}', [
+        'as' => 'elogio.delete',
+        'uses' => 'ElogiosController@delete'
+    ]);
+
+});

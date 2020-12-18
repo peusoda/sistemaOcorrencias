@@ -5,6 +5,7 @@ use Illuminate\Database\QueryException;
 use PhpParser\Node\Stmt\TryCatch;
 use Illuminate\Http\Request;
 use App\Aluno;
+use App\Http\Requests\StoreUpdateAlunoRequest;
 use App\Turma;
 use App\Responsavel;
 use Illuminate\Support\Facades\DB;
@@ -32,7 +33,7 @@ class AlunosController extends Controller
             ->with('turmas', $turmas)
             ->with('responsaveis', $responsaveis);
     }
-    protected function store(Request $request, Aluno $aluno) {
+    protected function store(StoreUpdateAlunoRequest $request, Aluno $aluno) {
         $aluno = new Aluno();
         $aluno->nome = $request->input('nome');
         $aluno->data_nascimento = $request->input('data_nascimento');
@@ -90,7 +91,7 @@ class AlunosController extends Controller
             ->with('responsaveis', $responsaveis);
     }
 
-    protected function updateConf(Request $request) {
+    protected function updateConf(StoreUpdateAlunoRequest $request) {
         $aluno = new Aluno();
         $aluno = Aluno::find($request->input('id'));
         $aluno->nome = $request->input('nome');

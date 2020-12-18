@@ -35,49 +35,22 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header">Cadastro de Ocorrencia</div>
+        <div class="card-header">Cadastro de Elogio</div>
         <div class="card-body">
           <div class="portlet-body table-responsive">
-            {{ Form::model($ocorrencia, ['route' => 'ocorrencia.updateConf','id' => 'form', 'method' => 'PUT', 'files' => true, 'enctype' => 'multipart/form-data']) }}
+            {{ Form::model($elogio, ['route' => 'elogio.updateConf','id' => 'form', 'method' => 'PUT', 'files' => true, 'enctype' => 'multipart/form-data']) }}
             <fieldset>
-              @foreach($images as $image)
-              <img src="{{ asset('storage/ocorrencias/'.$image->ocorrencia_id.'/'.$image->image1) }}" id="img"><br>
+
               <div class="form-group">
-                {{ Form::label('imgOco', 'Imagem da Ocorrência *', array('class' => 'col-md-2')) }}
-                <div class="col-md-6">
-                  <input type="file" class="form-control" name="imgOco" id="imgOco" onchange=" verificaExtensao(this); preview(event)">
-                </div>
-              </div>
-              @endforeach 
-              <!-- Select Basic -->
-              <div class="form-group">
-                {{ Form::label('tipo_id', 'Motivo da Ocorrência', array('class' => 'col-md-12 control-label required')) }}
-                <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
+                {{ Form::label('relato', 'Descrição do Elogio', array('class' => 'col-md-5 control-label required')) }}
                 <div class="col-md-12">
-                  {{ Form::select (
-                            'tipo_id',
-                            $tipos->pluck('descricao', 'id'),
-                            ['id' => 'tipo_id',
-                            'class' => 'form-control chosen-select',
-                            'required',
-                            'value' => $ocorrencia->tipo->tipo_ocorrencia_id,
-                            'autofocus'])
-                    }}
-                </div>
-              </div>
-
-              <input type="hidden" value="{{ $ocorrencia->id }}" name="id">
-              <!-- Text input-->
-              <div class="form-group">
-                {{ Form::label('disciplina', 'Disciplina', array('class' => 'col-md-2 control-label required')) }}
-                <div class="col-md-8 ">
-                  {{ Form::text('disciplina', 'old'('disciplina'), ['class' => 'form-control input-md', 'required']) }}
+                  {{ Form::text('relato', 'old'('relato'), ['class' => 'form-control input-md']) }}
                 </div>
               </div>
 
               <!-- Text input-->
               <div class="form-group">
-                {{ Form::label('data_ocorrencia', 'Data da Ocorrência', array('class' => 'col-md-5 control-label required')) }}
+                {{ Form::label('data_ocorrencia', 'Data do Elogio', array('class' => 'col-md-5 control-label required')) }}
                 <div class="col-md-3">
                   {{ Form::date('data_ocorrencia', 'old'('data_ocorrencia'), ['class' => 'form-control input-md', 'required']) }}
                 </div>
@@ -100,13 +73,6 @@
                 </div>
               </div>
 
-              <div class="form-group">
-                {{ Form::label('relato', 'Relato', array('class' => 'col-md-5 control-label required')) }}
-                <div class="col-md-12">
-                  {{ Form::text('relato', 'old'('relato'), ['class' => 'form-control input-md']) }}
-                </div>
-              </div>
-
               <table class="table display" id="table" cellspacing="0" width="100%">
                 <thead>
                   <tr>
@@ -118,7 +84,7 @@
                 <tbody>
                   @foreach($alunos as $aluno)
                   <tr class="active" value="{{ $aluno->id }}">
-                    <td><input type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}" @foreach($aluno->ocorrenciaAluno as $oc)@if($oc->ocorrencia_id == $ocorrencia->id) checked @endif @endforeach></td>
+                    <td><input type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}" @foreach($aluno->elogioAluno as $oc)@if($oc->elogio_id == $elogio->id) checked @endif @endforeach></td>
                     <td>{{ $aluno->nome }}</td>
                     <td>{{ $aluno->turma->codigo }}</td>
                   </tr>
@@ -198,29 +164,4 @@
     });
   });
 </script>
-{{-- Carregar a img ao ser adicionada --}}
-  <script>
-    function preview(event) {
-      var input = event.target.files[0];
-      var reader = new FileReader();
-      reader.onload = function() {
-        var result = reader.result;
-        var img = document.getElementById('img');
-          img.src = result;
-      }
-      reader.readAsDataURL (input);
-    }
-  </script>
-  {{-- Verificar extensão da imagem --}}
-  <script>
-    function verificaExtensao($input) {
-      var extPermitidas = ['jpg', 'png', 'jpeg'];
-      var extArquivo = $input.value.split('.').pop();
-
-      if(typeof extPermitidas.find(function(ext){ return extArquivo == ext; }) == 'undefined') {
-          alert('Extensão "' + extArquivo + '" não permitida!\n Adicione um arquivo com a extensões: ".png", "jpeg" ou ".jpg"');
-          document.getElementById("imgProd").value = ''
-      }
-    }
-  </script>
 @endpush

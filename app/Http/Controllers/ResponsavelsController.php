@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use App\Responsavel;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 use PhpParser\Node\Stmt\TryCatch;
 
 class ResponsavelsController extends Controller
@@ -41,10 +43,16 @@ class ResponsavelsController extends Controller
 
         /*
             Persistência de dados
-        */
+        */ $user = new User();
         Try {
             if($respon->save()) {
-               
+                $user->name = $request->input('nome');
+                $user->email = $request->input('email');
+                $user->password = Hash::make($respon->cpf);
+                $user->responsavel_id = Responsavel::max('id');
+                $user->tipo = 'responsavel';
+                $user->save();
+
                 flash('Responsavel cadastrado com sucesso!')->success();
                 return redirect(route('responsavel.show'));
             }
@@ -78,10 +86,25 @@ class ResponsavelsController extends Controller
         $respon->contato_1 = $request->input('contato_1');
         $respon->contato_2 = $request->input('contato_2');
 
+        $user = new User();
+        $user = User::where('responsavel_id', $id)
+            ->get();
+        foreach($user as $us) {}
+        $user = User::find($us->id);
+
         try {
             if($respon->save()) {
+                $user->name = $request->input('nome');
+                $user->email = $request->input('email');
+                $user->password = Hash::make($respon->cpf);
+                $user->responsavel_id = $id;
+                $user->tipo = 'responsavel';
+                $user->save();
+                
                 flash('Responsavel atualizado com sucesso!')->success();
                 return redirect(route('responsavel.show'));
+
+
             }
         } catch(QueryException $ex) {
             flash('Não foi possível atualizar Responsavel, tente novamente!')->error();

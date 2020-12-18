@@ -70,6 +70,12 @@ return [
             'url' => env('APP_URL').'/public',
         ],
 
+        'archive2' => [
+            'driver' => 'local',
+            'root' => public_path('storage/ocorrencias'),
+            'url' => env('APP_URL').'/public',
+        ],
+
     ],
 
     /*
