@@ -74,9 +74,10 @@
               </div>
 
               <table class="table display" id="table" cellspacing="0" width="100%">
+              <label for="relato" class="col-md-5 control-label required table">Selecione os alunos:</label>
                 <thead>
                   <tr>
-                    <th></th>
+                    <th style="width: 10px;"><input type="checkbox" id="checkTodos" name="checkTodos"></th>
                     <th>Nome</th>
                     <th>Turma</th>
                   </tr>
@@ -84,7 +85,7 @@
                 <tbody>
                   @foreach($alunos as $aluno)
                   <tr class="active" value="{{ $aluno->id }}">
-                    <td><input type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}" @foreach($aluno->elogioAluno as $oc)@if($oc->elogio_id == $elogio->id) checked @endif @endforeach></td>
+                    <td style="width: 100x;">&nbsp;&nbsp;<input type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}" @foreach($aluno->elogioAluno as $oc)@if($oc->elogio_id == $elogio->id) checked @endif @endforeach></td>
                     <td>{{ $aluno->nome }}</td>
                     <td>{{ $aluno->turma->codigo }}</td>
                   </tr>
@@ -129,7 +130,7 @@
           "sNext": "Seguinte",
           "sLast": "Último"
         }
-      },
+      },  paging: false,
       /*'columnDefs': [
            {
               'targets': 0,
@@ -154,6 +155,10 @@
     $("#turma_id").trigger("change");
 
   });
+
+  $("#checkTodos").click(function(){
+   	 $('input:checkbox').prop('checked', $(this).prop('checked'));
+   });
 
   $(document).ready(function() {
     $('[name=tipo_id]').select2({

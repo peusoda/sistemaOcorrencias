@@ -51,31 +51,34 @@
                 </div>
               </div>
 
-              <!-- Select Basic -->
-              <div class="form-group">
-                {{ Form::label('turma', 'Turma', array('class' => 'col-md-4 control-label required')) }}
-                <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
-                <div class="col-md-4">
-                  <select value='' id="turma_id" name="turma_id" class="form-control chosen-select" required>
-                    <option id="nada" name="nada" value="">Selecione uma opção</option>
-                    @foreach($turmas as $turma)
-                    <option value="{{ $turma->id }}">{{ $turma->codigo }}</option>
-                    @endforeach
-                  </select>
-                </div>
-              </div>
 
               <div class="form-group">
                 {{ Form::label('relato', 'Descrição do Elogio', array('class' => 'col-md-5 control-label required')) }}
                 <div class="col-md-12">
-                  <input id="relato" name="relato" type="text" placeholder="insira as observações sobre a Ocorrência" class="form-control input-md">
+                  <input id="relato" name="relato" type="text" placeholder="insira o seu elogio" class="form-control input-md">
                 </div>
               </div>
 
-                <table class="table display" id="table" cellspacing="0" width="100%">
+                <!-- Select Basic -->
+                <div class="form-group">
+                  {{ Form::label('turma', 'Turma', array('class' => 'col-md-4 control-label required')) }}
+                  <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
+                  <div class="col-md-4">
+                    <select value='' id="turma_id" name="turma_id" class="form-control chosen-select" required>
+                      <option id="nada" name="nada" value="">Selecione uma turma</option>
+                      @foreach($turmas as $turma)
+                      <option style="text-transform:uppercase" value="{{ $turma->id }}">{{ $turma->codigo . ' - ' . $turma->curso }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+
+                <table class="table display" id="table" cellspacing="0" width="100%" style="display: none">
+                <label for="relato" class="col-md-5 control-label required table" style="display: none">Selecione os alunos:</label>
+
                   <thead>
                     <tr>
-                      <th></th>
+                    <th style="width: 10px;"><input type="checkbox" id="checkTodos" name="checkTodos"></th>
                       <th>Nome</th>
                       <th>Turma</th>
                     </tr>
@@ -83,7 +86,7 @@
                   <tbody>
                     @foreach($alunos as $aluno)
                     <tr class="active" value="{{ $aluno->id }}">
-                      <td><input  type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}"></td>
+                      <td style="width: 100x;">&nbsp;&nbsp;<input  type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}"></td>
                       <td>{{ $aluno->nome }}</td>
                       <td>{{ $aluno->turma->codigo }}</td>
                     </tr>
@@ -117,7 +120,7 @@
     "language": {
                 "lengthMenu": "Mostrando _MENU_ registros por página",
                 "zeroRecords": "Nada encontrado",
-                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "info": " ",
                 "infoEmpty": "Nenhum registro disponível",
                 "infoFiltered": "(filtrado de _MAX_ registros no total)",
                 "sSearch": "Pesquisar",
@@ -127,7 +130,8 @@
                     "sNext": "Seguinte",
                     "sLast": "Último"
                 }
-            },
+            },  paging: false,
+
     /*'columnDefs': [
          {
             'targets': 0,
@@ -144,10 +148,15 @@
 
    });
 
+   $("#checkTodos").click(function(){
+   	 $('input:checkbox').prop('checked', $(this).prop('checked'));
+   });
+
    $(".dataTables_filter").hide();
 
    $('#turma_id').on('change', function(){
     table.search(this.selectedOptions[0].textContent).draw();   
+    $(".table").show();
   });
 
 });

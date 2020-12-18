@@ -108,6 +108,7 @@
               </div>
 
               <table class="table display" id="table" cellspacing="0" width="100%">
+              <label for="relato" class="col-md-5 control-label required table">Selecione os alunos:</label>
                 <thead>
                   <tr>
                     <th style="width: 10px;"><input type="checkbox" id="checkTodos" name="checkTodos"></th>
