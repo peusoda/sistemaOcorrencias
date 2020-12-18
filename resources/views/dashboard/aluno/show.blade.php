@@ -14,7 +14,7 @@
                 <div class="card-header"><strong>Dados dos Alunos sob sua responsabilidade</strong>
                 <button type="submit" class="btn btn-primary btnp">
                         <!-- Redirecionando para a rota de cadastro -->
-                        <div class="btn"> <a href="{{ route('aluno.perfil') }}" id="btn">Informes do Aluno </a></div>
+                        <div class="btn"> <a href="{{ route('aluno.perfil') }}" id="btn">Informações do Aluno </a></div>
                     </button>
             @endif
             <div>
@@ -70,20 +70,16 @@
                         <tbody>
                         @foreach($alunos as $aluno)
                             <tr class="active">
-                                <td><a href="{{ route('aluno.perfil') }}">{{ $aluno->nome }}</a></td>
+                            <td><a href="{{ route('aluno.perfil', $aluno->id) }}">{{ $aluno->nome }}</a></td>
                                 <td>{{ $aluno->turma->codigo }}</td>
                                 <td>{{ $aluno->municipio }}</td>
                                 <td>{{ $aluno->responsavel->nome }}</td>
-<<<<<<< HEAD
-                                <td><a href="{{ route('aluno.update', $aluno->id) }}" class="btn btn-warning btn-sm"> Atualizar
-=======
                                 @if(Auth::user()->tipo == 'responsavel')
                                 <td>{{ $aluno->data_nascimento }}</td>
                                 <td>{{ $aluno->cpf }}</td>
                                 @endif
                                 @if(Auth::user()->tipo != 'responsavel')
-                                <td><a href="{{ route('aluno.update', $aluno->id) }}" class="btn btn-info btn-sm"> Atualizar
->>>>>>> 5a83b175e1efdc94f869db27499eb7264c6550a0
+                                <td><a href="{{ route('aluno.update', $aluno->id) }}" class="btn btn-warning btn-sm"> Atualizar
                                     </a>&ensp;</td>
                                     <td><a class="btn btn-danger btn-sm delete-confirm"
                                         href="{{ route('aluno.delete', $aluno->id) }}">

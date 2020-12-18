@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Aluno;
 use App\Http\Requests\StoreUpdateAlunoRequest;
 use App\Turma;
+use App\Ocorrencia;
+use App\OcorrenciaAluno;
 use App\Responsavel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -187,8 +189,12 @@ class AlunosController extends Controller
             ->with('turmas', $turmas);                
     }
 
-    protected function perfil() {
+    protected function perfil($id) {
+        $aluno = new Aluno();
+        $aluno = Aluno::find($id);
         
-        return view('dashboard.aluno.perfil');
+        return view('dashboard.aluno.perfil')
+                ->with('aluno', $aluno);
+
     }
 }

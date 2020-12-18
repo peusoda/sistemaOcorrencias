@@ -148,7 +148,7 @@
                       </div>
 
                       <div class="form-group">
-                        {{ Form::label('obs_napne', 'Observações', array('class' => 'col-md-5 control-label')) }}
+                        {{ Form::label('obs_napne', 'Observações NAPNE', array('class' => 'col-md-5 control-label')) }}
                         <div class="col-md-12">
                           <input id="	obs_napne" name="	obs_napne" type="text" class="form-control input-md">
                         </div>
