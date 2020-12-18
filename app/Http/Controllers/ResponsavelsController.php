@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\StoreUpdateResponsavelRequest;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
@@ -30,7 +32,7 @@ class ResponsavelsController extends Controller
     /*
         Função de recebimento dos dados do formulário (Request $request), e persistência desses dados na tabela Responsavel.
     */
-    protected function store(Request $request, Responsavel $respon) {
+    protected function store(StoreUpdateResponsavelRequest $request, Responsavel $respon) {
         $respon = new Responsavel();
         /*
             Setando váriaveis
@@ -38,8 +40,8 @@ class ResponsavelsController extends Controller
         $respon->nome = $request->input('nome');
         $respon->cpf = preg_replace('/[^0-9]/', '', $request->input('cpf'));
         $respon->email = $request->input('email');
-        $respon->contato_1 = $request->input('contato_1');
-        $respon->contato_2 = $request->input('contato_2');
+        $respon->contato_1 = preg_replace('/[^0-9]/', '', $request->input('contato_1'));
+        $respon->contato_2 = preg_replace('/[^0-9]/', '', $request->input('contato_2'));
 
         /*
             Persistência de dados
@@ -76,15 +78,15 @@ class ResponsavelsController extends Controller
     /**
      * Método para atualizar Responsavel
      */
-    protected function updateConf(Request $request, Responsavel $respon) {
+    protected function updateConf(StoreUpdateResponsavelRequest $request, Responsavel $respon) {
         $respon = new Responsavel();
         $id = $request->input('id');
         $respon = Responsavel::find($id);
         $respon->nome = $request->input('nome');
         $respon->cpf = preg_replace('/[^0-9]/', '', $request->input('cpf'));
         $respon->email = $request->input('email');
-        $respon->contato_1 = $request->input('contato_1');
-        $respon->contato_2 = $request->input('contato_2');
+        $respon->contato_1 = preg_replace('/[^0-9]/', '', $request->input('contato_1'));
+        $respon->contato_2 = preg_replace('/[^0-9]/', '', $request->input('contato_2'));
 
         $user = new User();
         $user = User::where('responsavel_id', $id)
