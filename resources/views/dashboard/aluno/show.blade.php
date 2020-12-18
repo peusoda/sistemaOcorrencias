@@ -11,7 +11,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header"><strong>Alunos cadastrados no sistema</strong>
-                    <button type="submit" class="btn btn-primary btnp">
+                    <button type="submit" class="btn btn-success btnp">
                         <!-- Redirecionando para a rota de cadastro -->
                         <div class="btn"> <a href="{{ route('aluno.create') }}" id="btn">Cadastrar </a></div>
                     </button>
@@ -59,7 +59,7 @@
                                 <td>{{ $aluno->turma->codigo }}</td>
                                 <td>{{ $aluno->municipio }}</td>
                                 <td>{{ $aluno->responsavel->nome }}</td>
-                                <td><a href="{{ route('aluno.update', $aluno->id) }}" class="btn btn-info btn-sm"> Atualizar
+                                <td><a href="{{ route('aluno.update', $aluno->id) }}" class="btn btn-warning btn-sm"> Atualizar
                                     </a>&ensp;</td>
                                     <td><a class="btn btn-danger btn-sm delete-confirm"
                                         href="{{ route('aluno.delete', $aluno->id) }}">

@@ -12,7 +12,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header"><strong>Turmas cadastradas no sistema</strong>
-                    <button type="submit" class="btn btn-primary btnp">
+                    <button type="submit" class="btn btn-success btnp">
                         <div class="btn"> <a href="{{ Route('turmas.create') }}" id="btn">Cadastrar </a></div>
                     </button>
                 </div>
@@ -35,7 +35,7 @@
                                     <tr class="active">
                                         <td>{{  $turma->codigo  }}</td>
                                         <td>{{  $turma->curso   }}</td>
-                                        <td><a class="btn btn-info btn-sm" href="{{ route('turmas.edit', $turma->id)}}"> Atualizar</a>&ensp;</td>
+                                        <td><a class="btn btn-warning btn-sm" href="{{ route('turmas.edit', $turma->id)}}"> Atualizar</a>&ensp;</td>
                                         <td><a class="btn btn-danger btn-sm delete-confirm" href="{{ route('turmas.delete', $turma->id) }}">Excluir</a></td>
                                     </tr>
                                 @endforeach
