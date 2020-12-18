@@ -34,7 +34,7 @@
                                 <div class="form-group">
                                     {{ Form::label('nome', 'Nome', array('class' => 'col-md-2 control-label required')) }}
                                     <div class="col-md-8 ">
-                                        <input id="nome" name="nome" placeholder="Nome" class="form-control input-md @error('nome') is-invalid @enderror" required type="text">
+                                        <input id="nome" name="nome" placeholder="Nome" class="form-control input-md @error('nome') is-invalid @enderror" required type="text" value="{{ old('nome') }}">
                                     @error('nome')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -44,7 +44,7 @@
                                 <div class="form-group">
                                     {{ Form::label('cpf', 'CPF', array('class' => 'col-md-5 control-label required') )}}
                                     <div class="col-md-4">
-                                        <input id="cpf" name="cpf" type="text" placeholder="Digite o seu cpf" class="form-control input-md cpf  @error('cpf') is-invalid @enderror" required maxlength="14" minlength="14">
+                                        <input id="cpf" name="cpf" type="text" placeholder="Digite o seu cpf" class="form-control input-md cpf  @error('cpf') is-invalid @enderror" required maxlength="14" minlength="14" value="{{ old('cpf') }}">
                                     @error('cpf')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -54,7 +54,7 @@
                                 <div class="form-group">
                                     {{ Form::label('email', 'E-mail', array('class' => 'col-md-5 control-label required') )}}
                                     <div class="col-md-4">
-                                        <input id="email" name="email" type="email" placeholder="Digite o seu e-mail" class="form-control input-md  @error('email') is-invalid @enderror" required>
+                                        <input id="email" name="email" type="email" placeholder="Digite o seu e-mail" class="form-control input-md  @error('email') is-invalid @enderror" required value="{{ old('email') }}">
                                         @error('email')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -64,7 +64,7 @@
                                 <div class="form-group">
                                     {{ Form::label('contato_1', 'Contato 1', array('class' => 'col-md-5 control-label required')) }}
                                     <div class="col-md-4">
-                                        <input id="contato_1" name="contato_1" type="text" class="form-control input-md @error('contato_1') is-invalid @enderror" required onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
+                                        <input id="contato_1" name="contato_1" type="text" class="form-control input-md @error('contato_1') is-invalid @enderror" required onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" value="{{ old('contato_1') }}">
                                         @error('contato_1')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -74,7 +74,7 @@
                                 <div class="form-group">
                                     {{ Form::label('contato_2', 'Contato 2', array('class' => 'col-md-5 control-label')) }}
                                     <div class="col-md-4">
-                                        <input id="contato_2" name="contato_2" type="text" placeholder="" class="form-control input-md @error('contato_2') is-invalid @enderror"  onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
+                                        <input id="contato_2" name="contato_2" type="text" placeholder="" class="form-control input-md @error('contato_2') is-invalid @enderror"  onkeypress="mask(this, mphone);" onblur="mask(this, mphone); " value="{{ old('contato_2') }}">
                                         @error('contato_2')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror

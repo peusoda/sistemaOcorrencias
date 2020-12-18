@@ -47,7 +47,7 @@
                     <div class="form-group">
                       {{ Form::label('nome', 'Nome do aluno', array('class' => 'col-md-2 control-label required')) }}
                       <div class="col-md-8 ">
-                      <input id="nome" name="nome" class="form-control input-md @error('nome') is-invalid @enderror" required type="text">
+                      <input id="nome" name="nome" class="form-control input-md @error('nome') is-invalid @enderror" required type="text" value="{{ old('nome') }}">
                       @error('nome')
                         <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
@@ -58,7 +58,7 @@
                     <div class="form-group">
                       {{ Form::label('data_nascimento', 'Data de Nascimento', array('class' => 'col-md-5 control-label required')) }}
                       <div class="col-md-3">
-                      <input id="data_nascimento" name="data_nascimento" placeholder="DD/MM/AAAA" class="form-control input-md @error('data_nascimento') is-invalid @enderror" required="true" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+                      <input id="data_nascimento" name="data_nascimento" placeholder="DD/MM/AAAA" class="form-control input-md @error('data_nascimento') is-invalid @enderror" required="true" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()" value="{{ old('data_nascimento') }}">
                       @error('data_nascimento')
                         <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
@@ -86,7 +86,7 @@
                       <div class="form-group">
                       {{ Form::label('naturalidade', 'Naturalidade', array('class' => 'col-md-5 control-label required')) }}
                         <div class="col-md-4">
-                          <input id="naturalidade" name="naturalidade" type="text" class="form-control input-md @error('naturalidade') is-invalid @enderror" required="true">
+                          <input id="naturalidade" name="naturalidade" type="text" class="form-control input-md @error('naturalidade') is-invalid @enderror" required="true" value="{{ old('naturalidade') }}">
                           @error('naturalidade')
                           <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
@@ -96,7 +96,7 @@
                       <div class="form-group">
                         {{ Form::label('municipio', 'Município', array('class' => 'col-md-5 control-label required'))}}
                         <div class="col-md-4">
-                        <input id="municipio" name="municipio" type="text" class="form-control input-md @error('municipio') is-invalid @enderror" required="true">
+                        <input id="municipio" name="municipio" type="text" class="form-control input-md @error('municipio') is-invalid @enderror" required value="{{ old('municipio') }}">
                         @error('municipio')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -123,7 +123,7 @@
                       <div class="form-group">
                         {{ Form::label('cpf', 'CPF', array('class' => 'col-md-2 control-label required'))}}
                         <div class="col-md-2">
-                          <input id="cpf" name="cpf" placeholder="000.000.000-00" class="form-control input-md cpf @error('cpf') is-invalid @enderror" required="true" type="text" maxlength="14">
+                          <input id="cpf" name="cpf" placeholder="000.000.000-00" class="form-control input-md cpf @error('cpf') is-invalid @enderror" required="true" type="text" maxlength="14" value="{{ old('cpf') }}">
                           @error('cpf')
                           <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
@@ -133,7 +133,7 @@
                       <div class="form-group">
                         {{ Form::label('tipo_sanguineo', 'Tipo Sanguíneo', array('class' => 'col-md-5 control-label required'))}}
                         <div class="col-md-1">
-                          <input id="tipo_sanguineo" name="tipo_sanguineo" type="text" placeholder="Ex.: O+" class="form-control input-md @error('tipo_sanguineo') is-invalid @enderror" required="true">
+                          <input id="tipo_sanguineo" name="tipo_sanguineo" type="text" placeholder="Ex.: O+" class="form-control input-md @error('tipo_sanguineo') is-invalid @enderror" required value="{{ old('tipo_sanguineo') }}">
                           @error('tipo_sanguineo')
                           <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
@@ -143,28 +143,28 @@
                       <div class="form-group">
                         {{ Form::label('apelido', 'Apelido', array('class' => 'col-md-5 control-label'))}}
                         <div class="col-md-4">
-                          <input id="apelido" name="apelido" type="text" class="form-control input-md" >
+                          <input id="apelido" name="apelido" type="text" class="form-control input-md" value="{{ old('apelido') }}">
                         </div>
                       </div>
 
                       <div class="form-group">
                         {{ Form::label('obs_napne', 'Observações NAPNE', array('class' => 'col-md-5 control-label')) }}
                         <div class="col-md-12">
-                          <input id="	obs_napne" name="	obs_napne" type="text" class="form-control input-md">
+                          <input id="	obs_napne" name="	obs_napne" type="text" class="form-control input-md" value="{{ old('obs_napne') }}">
                         </div>
                       </div>
 
                       <div class="form-group">
                         {{ Form::label('obs_medica', 'Observações Médicas', array('class' => 'col-md-5 control-label')) }}
                         <div class="col-md-12">
-                          <input id="obs_medica" name="obs_medica" type="text" class="form-control input-md">
+                          <input id="obs_medica" name="obs_medica" type="text" class="form-control input-md" value="{{ old('obs_medica') }}">
                         </div>
                       </div>
 
                       <div class="form-group">
                         {{ Form::label('obs_pedagogica', 'Observações Pedagógicas', array('class' => 'col-md-5 control-label')) }}
                         <div class="col-md-12">
-                          <input id="obs_pedagogica" name="obs_pedagogica" type="text" class="form-control input-md">
+                          <input id="obs_pedagogica" name="obs_pedagogica" type="text" class="form-control input-md" value="{{ old('obs_pedagogica') }}">
                         </div>
                       </div>
 
@@ -190,7 +190,7 @@
                         {{ Form::label('responsavel', 'Responsável', array('class' => 'col-md-8 control-label')) }}
                         <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                         <div class="col-md-8"> 
-                          <select value='' id="responsavel" name="responsavel" class="form-control chosen-select">
+                          <select value='' id="responsavel" name="responsavel" class="form-control chosen-select" aria-selected="{{ old('responsavel') }}">
                             <option id="nada" name="nada" value="">Selecione uma opção</option>
                             @foreach($responsaveis as $responsavel)
                               <option value="{{ $responsavel->id }}">{{ $responsavel->nome }}</option>

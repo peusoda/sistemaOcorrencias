@@ -42,7 +42,7 @@
                       <div class="form-group">
                         <label class="col-md-2 control-label required" for="curso">Curso</label>
                         <div class="col-md-4">
-                          <input id="curso" name="curso" type="text" class="form-control @error('curso') is-invalid @enderror" required>  
+                          <input id="curso" name="curso" type="text" class="form-control @error('curso') is-invalid @enderror" required value="{{ old('curso') }}">  
                           @error('curso')
                             <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
