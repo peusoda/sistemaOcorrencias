@@ -67,7 +67,9 @@
                     <select value='' id="turma_id" name="turma_id" class="form-control chosen-select" required>
                       <option id="nada" name="nada" value="">Selecione uma turma</option>
                       @foreach($turmas as $turma)
-                      <option style="text-transform:uppercase" value="{{ $turma->id }}">{{ $turma->codigo . ' - ' . $turma->curso }}</option>
+                      <option  value="{{ $turma->id }}">{{ $turma->codigo}}</option>
+                    <!--  <option style="text-transform:uppercase" value="{{ $turma->id }}">{{ $turma->codigo . ' - ' . $turma->curso }}</option> -->
+
                       @endforeach
                     </select>
                   </div>
@@ -78,7 +80,8 @@
 
                   <thead>
                     <tr>
-                    <th style="width: 10px;"><input type="checkbox" id="checkTodos" name="checkTodos"></th>
+                      <th style="width: 10px;"><input type="checkbox" id="checkTodos" name="checkTodos"></th>
+                      <th></th>
                       <th>Nome</th>
                       <th>Turma</th>
                     </tr>
@@ -87,6 +90,7 @@
                     @foreach($alunos as $aluno)
                     <tr class="active" value="{{ $aluno->id }}">
                       <td style="width: 100x;">&nbsp;&nbsp;<input  type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}"></td>
+                      <td></td>
                       <td>{{ $aluno->nome }}</td>
                       <td>{{ $aluno->turma->codigo }}</td>
                     </tr>
