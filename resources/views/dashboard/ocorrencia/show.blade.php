@@ -11,7 +11,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header"><strong>Ocorrências cadastrados no sistema</strong>
-                    <button type="submit" class="btn btn-primary btnp">
+                    <button type="submit" class="btn btn-success btnp">
                         <!-- Redirecionando para a rota de cadastro -->
                         <div class="btn"> <a href="{{ route('ocorrencia.create') }}" id="btn">Cadastrar </a></div>
                     </button>
@@ -25,6 +25,7 @@
                                 <tr>
                                     <th>Turma</th>
                                     <th>Relato</th>
+                                    <th>Gravidade</th>
                                     <th>Atualizar</th>
                                     <th>Excluir</th>
                                 </tr>
@@ -32,9 +33,10 @@
                             <tbody>
                                 @foreach($ocorrencias as $ocorrencia)
                                 <tr class="active">
-                                    <td>{{ @$ocorrencia->turma->codigo }}</td>
+                                    <td style="text-transform:uppercase">{{ @$ocorrencia->turma->codigo . ' - ' . $ocorrencia->turma->curso }}</td>
                                     <td>{{ $ocorrencia->relato }}</td>
-                                    <td><a href="{{ route('ocorrencia.update', $ocorrencia->id) }}" class="btn btn-info btn-sm"> Atualizar
+                                    <td style="text-transform:capitalize">{{ $ocorrencia->tipo->motivo->nivel}}</td>
+                                    <td><a href="{{ route('ocorrencia.update', $ocorrencia->id) }}" class="btn btn-warning btn-sm"> Atualizar
                                         </a>&ensp;</td>
                                     <td><a class="btn btn-danger btn-sm delete-confirm" href="{{ route('ocorrencia.delete', $ocorrencia->id) }}">
                                             Excluir </a></td>

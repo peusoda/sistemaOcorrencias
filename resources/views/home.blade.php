@@ -22,10 +22,11 @@
     <div class="carousel-item active">
       <img class="first-slide" src="{{ asset('/img/if.jpg')  }}" alt="First slide">
       <div class="container">
-        <div class="carousel-caption text-left">
-          <h1>Example headline.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="{{ route('ocorrencia.create') }}" role="button">Nova Ocorrência</a></p>
+        <div class="carousel-caption">
+
+       <a class="btn3 btn-lg btn-primary" href="{{ route('ocorrencia.create') }}" role="button">Nova Ocorrência</a>&emsp;&emsp;&emsp;
+       <a class="btn3 btn-lg btn-primary" href="{{ route('elogio.create') }}" role="button">Novo Elogio</a>
+          
         </div>
       </div>
     </div>
@@ -33,9 +34,8 @@
       <img class="second-slide" src="{{ asset('/img/if2.jpg')  }}" alt="Second slide">
       <div class="container">
         <div class="carousel-caption">
-          <h1>Another example headline.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Saber mais</a></p>
+        <a class="btn3 btn-lg btn-primary" href="{{ route('ocorrencia.create') }}" role="button">Nova Ocorrência</a>&emsp;&emsp;&emsp;
+        <a class="btn3 btn-lg btn-primary" href="{{ route('elogio.create') }}" role="button">Novo Elogio</a>
         </div>
       </div>
     </div>
@@ -43,9 +43,7 @@
       <img class="third-slide" src="{{ asset('/img/if3.jpg')  }}" alt="Third slide">
       <div class="container">
         <div class="carousel-caption text-right">
-          <h1>One more for good measure.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="https://www.ifnmg.edu.br/almenara" target="_blank" role="button">Conheça o Campus</a></p>
+          <p><a class="btn btn-lg btn-success" href="https://www.ifnmg.edu.br/almenara" target="_blank" role="button">Conheça o Campus</a></p>
         </div>
       </div>
     </div>

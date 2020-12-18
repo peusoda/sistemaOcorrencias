@@ -83,6 +83,13 @@
                 </div>
               </div>
 
+              <div class="form-group">
+                {{ Form::label('relato', 'Relato', array('class' => 'col-md-5 control-label required')) }}
+                <div class="col-md-12">
+                  {{ Form::text('relato', 'old'('relato'), ['class' => 'form-control input-md']) }}
+                </div>
+              </div>
+
               <!-- Select Basic -->
               <div class="form-group">
                 {{ Form::label('turma_id', 'Turma', array('class' => 'col-md-4 control-label required')) }}
@@ -100,17 +107,10 @@
                 </div>
               </div>
 
-              <div class="form-group">
-                {{ Form::label('relato', 'Relato', array('class' => 'col-md-5 control-label required')) }}
-                <div class="col-md-12">
-                  {{ Form::text('relato', 'old'('relato'), ['class' => 'form-control input-md']) }}
-                </div>
-              </div>
-
               <table class="table display" id="table" cellspacing="0" width="100%">
                 <thead>
                   <tr>
-                    <th></th>
+                    <th style="width: 10px;"><input type="checkbox" id="checkTodos" name="checkTodos"></th>
                     <th>Nome</th>
                     <th>Turma</th>
                   </tr>
@@ -118,7 +118,7 @@
                 <tbody>
                   @foreach($alunos as $aluno)
                   <tr class="active" value="{{ $aluno->id }}">
-                    <td><input type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}" @foreach($aluno->ocorrenciaAluno as $oc)@if($oc->ocorrencia_id == $ocorrencia->id) checked @endif @endforeach></td>
+                    <td style="width: 100x;">&nbsp;&nbsp;<input type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}" @foreach($aluno->ocorrenciaAluno as $oc)@if($oc->ocorrencia_id == $ocorrencia->id) checked @endif @endforeach></td>
                     <td>{{ $aluno->nome }}</td>
                     <td>{{ $aluno->turma->codigo }}</td>
                   </tr>
@@ -153,7 +153,7 @@
       "language": {
         "lengthMenu": "Mostrando _MENU_ registros por página",
         "zeroRecords": "Nada encontrado",
-        "info": "Mostrando página _PAGE_ de _PAGES_",
+        "info": " ",
         "infoEmpty": "Nenhum registro disponível",
         "infoFiltered": "(filtrado de _MAX_ registros no total)",
         "sSearch": "Pesquisar",
@@ -162,8 +162,10 @@
           "sPrevious": "Anterior",
           "sNext": "Seguinte",
           "sLast": "Último"
-        }
-      },
+        }            
+
+      },        
+      paging: false,
       /*'columnDefs': [
            {
               'targets': 0,
@@ -188,6 +190,10 @@
     $("#turma_id").trigger("change");
 
   });
+
+  $("#checkTodos").click(function(){
+   	 $('input:checkbox').prop('checked', $(this).prop('checked'));
+   });
 
   $(document).ready(function() {
     $('[name=tipo_id]').select2({

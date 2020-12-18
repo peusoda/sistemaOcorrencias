@@ -14,13 +14,13 @@
                 <div class="card-header"><strong>Dados dos Alunos sob sua responsabilidade</strong>
                 <button type="submit" class="btn btn-primary btnp">
                         <!-- Redirecionando para a rota de cadastro -->
-                        <div class="btn"> <a href="{{ route('aluno.perfil') }}" id="btn">Informes do Aluno </a></div>
+                        <div class="btn"> <a href="{{ route('aluno.perfil') }}" id="btn">Informações do Aluno </a></div>
                     </button>
             @endif
             <div>
             @if(Auth::user()->tipo != 'responsavel')
                 <div class="card-header"><strong>Alunos cadastrados no sistema</strong>
-                    <button type="submit" class="btn btn-primary btnp">
+                    <button type="submit" class="btn btn-success btnp">
                         <!-- Redirecionando para a rota de cadastro -->
                         <div class="btn"> <a href="{{ route('aluno.create') }}" id="btn">Cadastrar </a></div>
                     </button>
@@ -70,8 +70,8 @@
                         <tbody>
                         @foreach($alunos as $aluno)
                             <tr class="active">
-                                <td><a href="{{ route('aluno.perfil') }}">{{ $aluno->nome }}</a></td>
-                                <td>{{ $aluno->turma->codigo }}</td>
+                            <td><a href="{{ route('aluno.perfil', $aluno->id) }}">{{ $aluno->nome }}</a></td>
+                                <td style="text-transform:uppercase">{{ $aluno->turma->codigo . ' - ' . $aluno->turma->curso  }}</td>
                                 <td>{{ $aluno->municipio }}</td>
                                 <td>{{ $aluno->responsavel->nome }}</td>
                                 @if(Auth::user()->tipo == 'responsavel')
@@ -79,7 +79,7 @@
                                 <td>{{ $aluno->cpf }}</td>
                                 @endif
                                 @if(Auth::user()->tipo != 'responsavel')
-                                <td><a href="{{ route('aluno.update', $aluno->id) }}" class="btn btn-info btn-sm"> Atualizar
+                                <td><a href="{{ route('aluno.update', $aluno->id) }}" class="btn btn-warning btn-sm"> Atualizar
                                     </a>&ensp;</td>
                                     <td><a class="btn btn-danger btn-sm delete-confirm"
                                         href="{{ route('aluno.delete', $aluno->id) }}">

@@ -59,5 +59,10 @@ class OcorrenciaMotivo extends Model{
         'tipo_ocorrencia_id',
         'ocorrencia_id',
     ];
+
+    public function motivo()
+    {
+        return $this->hasOne(TipoOcorrencia::class, 'id','tipo_ocorrencia_id');
+    }
     
 }

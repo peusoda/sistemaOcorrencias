@@ -6,8 +6,9 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" href="{{  asset('img/if-icon.png')  }}">
 
-    <title>{{ config('SIGO', 'Laravel') }}</title>
+    <title>SIGO - Sistema de Ocorrências</title>
 
 
     <meta charset="utf-8">
@@ -34,6 +35,12 @@
         background-color: rgb(194, 218, 189);
         font-weight: 800;
       }
+      #sidebarToggle{
+        position: absolute;
+        float: left;
+        z-index:2;
+      }
+
       .required:after {
         content:" *"; 
         color: red;
@@ -41,21 +48,30 @@
       label, .card-header{
         font-weight: bold;
       }
+
+      .dataTables_wrapper {
+        min-width: 500px;
+      }
     </style>
 </head>
 <body id="page-top">
 
+
+  
   <!-- Page Wrapper -->
+
+  <button class="btn22" data-toggle="collapse" id="sidebarToggle"><i class="fas fa-bars"></i></button>        
+
   <div id="wrapper">
             <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-green sidebar sidebar-dark accordion" id="accordionSidebar">
+    <div class=" navbar-nav bg-gradient-green sidebar sidebar-dark " id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ asset('home') }}">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SIGO <sup>IFNMG</sup></div>
+        <div class="img1"><img src="{{ asset('/img/logoif.png')  }}" width="75%"></div>
+        <div class="img2"><img src="{{ asset('/img/if-icon2.png')  }}" width="40%"></div>
         </a>
 
         <!-- Divider -->
@@ -185,7 +201,7 @@ document.getElementById('logout-form').submit();">
       </li>
 
 
-        </ul>
+    </div>
         
       
  

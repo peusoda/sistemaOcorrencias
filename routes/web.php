@@ -104,7 +104,7 @@ Route::group(['prefix' => 'aluno'], function(){
        'uses' => 'AlunosController@show' 
     ]);
     //Apresentação do Perfil do aluno
-    Route::get('/perfil', [ 
+    Route::get('/perfil/{id}', [ 
         'as' => 'aluno.perfil',
         'uses' => 'AlunosController@perfil'
     ]);
