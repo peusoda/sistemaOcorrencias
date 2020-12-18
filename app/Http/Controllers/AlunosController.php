@@ -49,7 +49,7 @@ class AlunosController extends Controller
         $aluno->obs_napne = $request->input('obs_napne');
         $aluno->obs_medica = $request->input('obs_medica');
         $aluno->obs_pedagogica = $request->input('obs_pedagogica');
-        $aluno->turma_id = $request->input('turma');
+        $aluno->turma_id = $request->input('turma_id');
         $aluno->responsavel_id = $request->input('responsavel');
         $aluno->image = "";
 
@@ -180,7 +180,7 @@ class AlunosController extends Controller
         $alunos = new Aluno();
         $turmas = new Turma();
         $turmas = Turma::all();
-        $id = $request->input('turma');
+        $id = $request->input('turma_id');
         $alunos = Aluno::where('turma_id', $id)
             ->get();
         

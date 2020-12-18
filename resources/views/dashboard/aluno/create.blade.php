@@ -174,7 +174,7 @@
                         {{ Form::label('turma', 'Turma', array('class' => 'col-md-4 control-label required')) }}
                         <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                         <div class="col-md-4"> 
-                          <select value='' id="turma" name="turma" class="form-control chosen-select @error('turma') is-invalid @enderror" required>
+                          <select value='' id="turma_id" name="turma_id" class="form-control chosen-select @error('turma_id') is-invalid @enderror" required>
                             <option id="nada" name="nada" value="">Selecione uma opção</option>
                             @foreach($turmas as $turma)
                               <option value="{{ $turma->id }}">{{ $turma->codigo }}</option>
