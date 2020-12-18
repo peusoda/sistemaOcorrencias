@@ -25,7 +25,7 @@
         <div class="carousel-caption">
 
        <a class="btn3 btn-lg btn-primary" href="{{ route('ocorrencia.create') }}" role="button">Nova Ocorrência</a>&emsp;&emsp;&emsp;
-       <a class="btn3 btn-lg btn-primary" href="{{ route('ocorrencia.create') }}" role="button">Novo Elogio</a>
+       <a class="btn3 btn-lg btn-primary" href="{{ route('elogio.create') }}" role="button">Novo Elogio</a>
           
         </div>
       </div>
@@ -35,7 +35,7 @@
       <div class="container">
         <div class="carousel-caption">
         <a class="btn3 btn-lg btn-primary" href="{{ route('ocorrencia.create') }}" role="button">Nova Ocorrência</a>&emsp;&emsp;&emsp;
-       <a class="btn3 btn-lg btn-primary" href="{{ route('ocorrencia.create') }}" role="button">Novo Elogio</a>
+        <a class="btn3 btn-lg btn-primary" href="{{ route('elogio.create') }}" role="button">Novo Elogio</a>
         </div>
       </div>
     </div>
