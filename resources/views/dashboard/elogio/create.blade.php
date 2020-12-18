@@ -4,6 +4,13 @@
 <link rel="stylesheet" href="{{ asset('/js/select2/select2.min.css')  }}" crossorigin="anonymous" />
 
 <style>
+
+img {
+    max-width:70px;
+    max-height:70px;
+    width: auto;
+    height: auto;
+}
   .select2-container {
     width: 100% !important;
     padding: 0;
@@ -90,7 +97,7 @@
                     @foreach($alunos as $aluno)
                     <tr class="active" value="{{ $aluno->id }}">
                       <td style="width: 100x;">&nbsp;&nbsp;<input  type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}"></td>
-                      <td></td>
+                      <td style="width: 100x;"><img src="{{ asset('storage/alunos/'.$aluno->id.'/'.$aluno->image) }}" id="img" alt=""></td>
                       <td>{{ $aluno->nome }}</td>
                       <td>{{ $aluno->turma->codigo }}</td>
                     </tr>
