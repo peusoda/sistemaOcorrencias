@@ -51,7 +51,7 @@
                                 {{ Form::label('funcao', 'Função', array('class' => 'col-md-5 control-label required'))}}
                                 <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                                 <div class="col-md-4"> 
-                                    <select value='' id="funcao" name="funcao" class="form-control chosen-select" required>
+                                    <select value='' id="funca" name="funcao" class="form-control chosen-select" required>
                                         <option id="nada" name="nada" value="">Selecione uma opção</option>
                                         <option id="funcao" name="funcao" value="p">Professor</option>
                                         <option id="funcao" name="funcao" value="t">Técnico</option>

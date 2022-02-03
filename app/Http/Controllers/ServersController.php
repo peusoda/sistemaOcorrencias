@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\StoreUpdateServerRequest;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
@@ -51,7 +53,7 @@ class ServersController extends Controller
                 return redirect(route('servidor.show'));
             }
         } catch(QueryException $ex) {
-            flash('Não foi possível cadastrar Servidor, tente novamente!')->error();
+            flash('Não foi possível cadastrar servidor, tente novamente!')->error();
             return redirect(route('servidor.show'));
         }            
     }
@@ -86,7 +88,7 @@ class ServersController extends Controller
                 return redirect(route('servidor.show'));
             }
         } catch(QueryException $ex) {
-            flash('Não foi possível atualizar Servidor, tente novamente!')->error();
+            flash('Não foi possível atualizar servidor, tente novamente!')->error();
             return redirect(route('servidor.show'));
         }
     }
@@ -99,11 +101,11 @@ class ServersController extends Controller
 
         try {
             if($serv->delete()) {
-                flash('Servidor excluido com sucesso!')->success();
+                flash('Servidor excluído com sucesso!')->success();
                 return redirect(route('servidor.show'));
             }
         } catch(QueryException $ex) {
-            flash('Não foi possível excluir Servidor, tente novamente!')->error();
+            flash('Não foi possível excluir servidor, tente novamente!')->error();
             return redirect(route('servidor.show'));
         }
     }
