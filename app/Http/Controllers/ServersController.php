@@ -39,7 +39,7 @@ class ServersController extends Controller
         $serv->siape = $request->input('siape');
         $serv->funcao = $request->input('funcao');
         $serv->email = $request->input('email');
-        $serv->contato = $request->input('contato');
+        $serv->contato = preg_replace('/[^0-9]/', '', $request->input('contato'));
         /*
             Persistência de dados
         */

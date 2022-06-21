@@ -51,9 +51,13 @@
                                 <!--<label class="col-md-1 control-label" for="radios">Função<h11>*</h11></label>-->
                                 <div class="col-md-4"> 
                                     <select value='' id="funca" name="funcao" class="form-control chosen-select" required>
-                                        <option id="nada" name="nada" value="">Selecione uma opção</option>
+                                        @if($server->funcao == 'p')
                                         <option id="funcao" name="funcao" value="p">Professor</option>
                                         <option id="funcao" name="funcao" value="t">Técnico</option>
+                                        @else
+                                        <option id="funcao" name="funcao" value="t">Técnico</option>
+                                        <option id="funcao" name="funcao" value="p">Professor</option>
+                                        @endif
                                     </select>
                                 </div>
                             </div>

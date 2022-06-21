@@ -138,14 +138,14 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
-
+        @if(Auth::user()->tipo == 'admin')
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('users.show') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Usuários</span></a>
         </li>
-
+        @endif
         <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -167,7 +167,7 @@
         <li class="nav-item dropdown no-arrow active">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-user"></i>
-          <span class="mr-2 d-none d-lg-inline small">Alfredo</span>
+          <span class="mr-2 d-none d-lg-inline small">{{ Auth::user()->name }}</span>
         </a>
 
         <hr class="sidebar-divider my-0">

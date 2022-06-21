@@ -46,7 +46,7 @@
           <div class="portlet-body table-responsive">
             {{ Form::model($elogio, ['route' => 'elogio.updateConf','id' => 'form', 'method' => 'PUT', 'files' => true, 'enctype' => 'multipart/form-data']) }}
             <fieldset>
-
+            <input type="hidden" value="{{ $elogio->id }}" name="id">
               <div class="form-group">
                 {{ Form::label('relato', 'Descrição do Elogio', array('class' => 'col-md-5 control-label required')) }}
                 <div class="col-md-12">
@@ -92,7 +92,7 @@
                 <tbody>
                   @foreach($alunos as $aluno)
                   <tr class="active" value="{{ $aluno->id }}">
-                    <td style="width: 100x;">&nbsp;&nbsp;<input type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}" @foreach($aluno->elogioAluno as $oc)@if($oc->elogio_id == $elogio->id) checked @endif @endforeach></td>
+                    <td style="width: 100x;">&nbsp;&nbsp;<input type="checkbox" name="checkbox[{{ $aluno->id }}]" value="{{ $aluno->id }}" ></td>
                     <td style="width: 100x;"><img src="{{ asset('storage/alunos/'.$aluno->id.'/'.$aluno->image) }}" id="img" alt=""></td>
                     <td>{{ $aluno->nome }}</td>
                     <td>{{ $aluno->turma->codigo }}</td>

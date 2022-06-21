@@ -17,7 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes([
+    'register' => false,
+    'reset' => false,
+    'verify' => false,
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/telacad', function () {
@@ -207,3 +211,33 @@ Route::group(['prefix' => 'elogio'], function(){
     ]);
 
 });
+
+Route::group(['prefix' => 'users'], function(){
+    //Rota para CRUD usuários do Sistema
+
+    Route::get('/showUser', [
+        'as' => 'users.show',
+        'uses' => 'UsersController@show'
+    ]);
+    Route::get('/createUser', [
+        'as' => 'users.create',
+        'uses' => 'UsersController@create'
+    ]);
+    Route::post('/storeUser', [
+        'as' => 'users.store',
+        'uses' => 'UsersController@store'
+    ]);
+    Route::get('/editUser/{id}',[
+        'as' => 'users.edit',
+        'uses' => 'UsersController@edit'
+    ]);
+    Route::put('/update', [
+        'as' => 'users.update',
+        'uses' => 'UsersController@update'
+    ]);
+    Route::get('/destroy/{id}', [
+        'as' => 'users.destroy',
+        'uses' => 'UsersController@destroy'
+    ]);
+});
+

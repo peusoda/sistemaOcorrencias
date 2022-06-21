@@ -56,6 +56,7 @@
                         onchange=" verificaExtensao(this); preview(event)"
                         accept="image/*"
                         capture="environment"
+                        required = "true"
                         >
                       </div>
                     </div>

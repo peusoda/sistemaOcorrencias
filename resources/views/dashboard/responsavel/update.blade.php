@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="form-group">
-                  {{ Form::label('contato_2', 'Contato', array('class' => 'col-md-5 control-label required')) }}
+                  {{ Form::label('contato_2', 'Contato', array('class' => 'col-md-5 control-label')) }}
                   <div class="col-md-4">
                     {{ Form::text('contato_2', 'old'('contato_2'), ['class' => 'form-control input-md', 'required onkeypress="mask(this, mphone);" onblur="mask(this, mphone);"']) }}
                     @error('contato_2')

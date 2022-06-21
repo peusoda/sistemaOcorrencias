@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.appLogin')
 
-@section('content')
+@section('body')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><strong>{{ __('Cadastrar-se') }}</strong></div>
+                <div class="card-header"><strong>{{ __('Cadastrar novo usuário') }}</strong></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

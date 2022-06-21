@@ -87,7 +87,7 @@ class ElogiosController extends Controller
     protected function updateConf(Request $request) {
         $elogio = new Ocorrencia();  
         $elogio = Ocorrencia::find($request->input('id'));
-        $elogio->categoria = "elogio";
+        $elogio->categoria = $elogio->categoria;
         $elogio->relato = $request->input('relato');
         $elogio->data_ocorrencia = $request->input('data_ocorrencia');
         $elogio->turma_id = $request->input('turma_id');

@@ -32,7 +32,7 @@
                       <div class="form-group">
                         <label class="col-md-2 control-label required" for="codigo">Código da Turma</label>  
                         <div class="col-md-4 ">
-                          <input id="codigo" name="codigo" class="form-control input-md @error('codigo') is-invalid @enderror" required type="text" value="{{ old('codigo') }}">
+                          <input id="codigo" name="codigo" class="form-control input-md " required type="text" >
                           @error('codigo')
                             <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
